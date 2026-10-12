@@ -16,6 +16,8 @@ After this hour, you should be able to:
 
 **Prerequisites:** Basic Linux/DevOps familiarity, browser or paper, text editor. Use **synthetic** data, never real customer logs.
 
+**5W+H:** AI techniques (what) for safe incident handling (why), chosen by DevOps teams (who/where), before automation (when), through task classification and verification (how).
+
 ## 2. One analogy + Memory Hooks — 6 min (concepts)
 
 Think of a company with different teams:
@@ -26,14 +28,8 @@ Think of a company with different teams:
 | ML | 🎓 **Apprentice** | Learns patterns from examples |
 | Deep Learning | 🎂 **Layer Cake** | ML using neural networks with many layers |
 | GenAI | 🎨 **Creative Studio** | Produces new text, code, images, etc. |
-| Supervised learning | 📝 **Answer Key** | Examples include known correct labels |
-| Unsupervised learning | 🧦 **Sorting Socks** | Finds groupings without target labels |
-| Reinforcement learning | 🎮 **Game Points** | Learns actions from reward feedback |
-| Dataset | 📚 **Practice Book** | Examples used for learning/testing |
-| Model + weights | 🎚️ **Tuned Machine** | Learned numerical settings shape predictions |
 | Training | 🏋️ **Gym** | Learns/adjusts model weights |
 | Inference | 🏟️ **Match Day** | Uses learned weights on new input |
-| Foundation model | 🧰 **General Toolkit** | Broad pretrained model adaptable to many tasks |
 
 **Say it aloud:** **Umbrella → Apprentice → Layer Cake → Creative Studio**.  
 **Say it aloud:** **Gym → Match Day**.
@@ -52,7 +48,9 @@ Think of a company with different teams:
 
 **Training vs inference:** During training, a learning algorithm adjusts the model's **weights** using a **dataset**. During inference, the trained model predicts or generates for a new request. Sending an ordinary prompt does **not** retrain its weights.
 
-**Foundation models:** A broadly pretrained model can be adapted to multiple tasks through prompts, tools, retrieval or additional training, depending on the system.
+**Model basics:** A dataset contains examples; learned numerical weights define a trained model. **Foundation models:** A broadly pretrained model can be adapted through prompts, tools, retrieval or additional training.
+
+**Depth progression:** Beginner: identify the technique. Engineer: inspect datasets, labels and weights. Advanced awareness: test reliability and the reward/validation design before deployment.
 
 ~~~mermaid
 flowchart LR
@@ -109,6 +107,10 @@ Create **01_Hour1_Evidence.md** (or one handwritten page) containing:
 - Four Gym/Match Day answers.
 - Your simple model lifecycle diagram.
 - One mistake you corrected.
+
+**Assessment (10 points):** Five correct task choices with rationale (5); four training/inference answers (2); two memory chains explained (2); safe human approval (1). **Pass: 8/10 or higher**, with production safety reasoning correct.
+
+**Troubleshooting:** No API/model access is needed. If unsure whether a task needs ML, ask whether labels, unknown clusters or a reward signal exist. Use a fixed rule when learning adds no value.
 
 **Done when:** all five decisions are reasoned, all four training/inference cases are correct, and you can explain the two memory chains unaided. The trainer should review your results; reading this page alone is not completion.
 
