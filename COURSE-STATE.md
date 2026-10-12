@@ -16,7 +16,7 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 ## Checkpoints
 | Deliverable | Status | Evidence / next action |
 |---|---|---|
-| Repo baseline and governance docs | IN_PROGRESS | Verify links and committed files |
+| Repo baseline and governance docs | VALIDATED | README, alignment, plan, standard, architecture, labs placeholder and ignore rules are committed and verified in main |
 | Source TOC 30h correction | BLOCKED | Confirm replacement durations in Word source |
 | Session-by-session content files | NOT_STARTED | Start M01, follow Techlambda standard |
 | Starter lab environment | NOT_STARTED | Python, virtualenv, FastAPI, model/mock adapter |
