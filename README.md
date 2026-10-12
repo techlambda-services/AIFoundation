@@ -182,11 +182,13 @@ The source TOC expects hands-on checks, oral knowledge checks, lab validation, t
 
 ## 7. Repository Status
 
-**Status: Documentation baseline — implementation not yet validated.**
+**Status: Module 01 teaching manuscript available; learner labs and implementation not yet validated.**
 
 This README is aligned to the foundation portion of the supplied TOC. It is **not** evidence that runnable labs, teaching notes, automated tests or the capstone have already been implemented. The repository also contains broader planning documents; those do not change the scope of this foundation-only README.
 
-**Next planned delivery:** M01 lesson materials, analogy and visual flow, guided experiments, expected results, knowledge checks and validated evidence.
+**Module 01 delivered manuscript:** [AI, ML, Deep Learning & Generative AI Foundations](content/module-01/01_AI_ML_DL_Generative_AI_Foundations.md) — source-aligned teaching content, memory hooks, 120-minute learning plan, three guided labs, expected outputs, rubric and checks. This is **content delivery**, not proof of completed live learner exercises or model benchmarks.
+
+**Next planned delivery:** capture learner evidence for M01 and prepare M02 — LLMs, Prompt Engineering & Responsible AI.
 
 ---
 
