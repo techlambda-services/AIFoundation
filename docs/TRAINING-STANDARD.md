@@ -21,3 +21,10 @@ Problem/context; objectives; prerequisites and assumptions; 5W+H; real-life anal
 - Diagrams and explanation agree with implemented architecture.
 - Evidence attached and rubric scored.
 - README, checkpoint and related artifacts updated together.
+
+## Keep delivery simple (KISS · DRY · YAGNI · SOLID)
+- The topic-content items above are a **quality checklist**, not 35 required headings. Combine related requirements into **5–7 readable sections** per one-hour lesson.
+- Every topic uses **one focused analogy + Memory Hook**, concise concepts, one visual if it adds clarity, hands-on work, validation/evidence and a next step.
+- **KISS:** explain one idea once in plain language. **DRY:** link to shared concepts rather than restating them. **YAGNI:** remove advanced material not required for the approved TOC/outcome.
+- **SOLID (where code exists):** keep examples small, single-purpose and easy to extend/test; do not teach unnecessary abstractions in foundational conceptual sessions.
+- For a 60-minute block, aim for **18 minutes explanation + 42 minutes doing and checking**. Prefer one simple evidence submission and record any activity that was *illustrative* rather than actually run.
