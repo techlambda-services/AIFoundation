@@ -11,7 +11,7 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 - Kanchan specialization: Modules 06–13 (20h under proposed correction).
 - Delivery: 15 × 2h; 30% theory, 70% practice goal.
 - Capstone should be developed progressively instead of in the final two hours.
-- M01 now uses two focused one-hour lesson files with all source M01 topics and three source lab themes (DevOps map, token/context experiment, model comparison). The original 40-section file is removed from main (available in Git history). No learner lab execution, independent CI run or live deployment is claimed.
+- M01 uses two focused one-hour lessons, covering the source M01 concepts and three required lab themes (DevOps map, token/context experiment, model comparison). The lessons now include concise 5W+H, limited memory hooks, depth progression, 10-point rubrics and troubleshooting. The original 40-section file is removed from main (available in Git history). No learner lab execution, independent CI run or live deployment is claimed.
 
 ## Checkpoints
 | Deliverable | Status | Evidence / next action |
@@ -19,7 +19,8 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 | Repo baseline and governance docs | VALIDATED | README, alignment, plan, standard, architecture, labs placeholder and ignore rules are committed and verified in main |
 | Source TOC 30h correction | BLOCKED | Confirm replacement durations in Word source |
 | Session-by-session content files | IN_PROGRESS | M01 authored in `content/module-01/`; M02 onward pending |
-| M01 manuscript / TOC alignment | VALIDATED | Two 60-minute files cover the M01 source topics, memory hooks, three core lab themes, checks and evidence; content review only |
+| M01 manuscript / TOC alignment | VALIDATED | Two 60-minute files, core lab themes, short checks and evidence; content review only |
+| M01 offline context example | VALIDATED | Python run: 13 words; budget 6 retains 6/drops 7; budget 20 retains 13/drops 0 |
 | M01 learner lab evidence | NOT_STARTED | Instructor/learner to execute activities; capture expected vs actual evidence and teach-back |
 | Starter lab environment | NOT_STARTED | Python, virtualenv, FastAPI, model/mock adapter |
 | Foundation capstone | NOT_STARTED | S03–05 |
