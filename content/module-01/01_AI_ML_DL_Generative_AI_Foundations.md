@@ -365,7 +365,7 @@ report = {
 }
 
 print(json.dumps(report, indent=2))
-assert report["toy_words_dropped"] > 0
+assert report["toy_words_dropped"] == max(0, len(words) - toy_word_budget)
 assert report["actual_model_tokens"] is None
 assert len(visible_words) <= toy_word_budget
 ~~~
@@ -374,7 +374,7 @@ assert len(visible_words) <= toy_word_budget
 
 **Optional real tokenizer experiment:** Use the documentation/tokenizer associated with a specific model and report its model name and **actual measured token count**. Do not estimate tokens by relabeling the output above.
 
-**Expected:** Program prints JSON counts with **actual_model_tokens: null**, plus a shortened text when the toy budget is 12.
+**Expected:** Program prints JSON counts with **actual_model_tokens: null**. For this 23-word sample, budget **12** retains 12 words and drops **11**; budget **24** retains all 23 words and drops **0**. Both executions must pass the assertions.
 
 **Validation:** All assertions pass; the learner identifies the removed part of the sample and states why “whiteboard” does not mean permanent memory.
 
