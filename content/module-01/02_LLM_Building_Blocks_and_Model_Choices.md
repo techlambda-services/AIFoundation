@@ -12,6 +12,8 @@ After this hour, you should be able to explain **transformers, tokens, context w
 
 **Prerequisites:** Hour 1. Two accessible chat models are **optional**. Free offline examples are provided.
 
+**5W+H:** Model building blocks (what) help technical teams (who) choose safer AI support assistants (why/where), before integration (when), using measured context and model comparisons (how).
+
 ## 2. Memory Hooks — 6 min (concepts)
 
 | Concept | Memory Hook | Plain-English meaning |
@@ -20,10 +22,6 @@ After this hour, you should be able to explain **transformers, tokens, context w
 | Tokens | 🧱 **Lego Pieces** | Model-specific chunks of text; **not necessarily words** |
 | Context window | 🧑‍🏫 **Whiteboard** | Limited space for tokens the model can consider |
 | Embeddings | 🧭 **Meaning GPS** | Vectors that help find semantically related content |
-| Multimodal AI | 👀 **Multiple Senses** | Handles more than one modality, if supported |
-| Hosted / local | 🍽️ **Restaurant / Home Kitchen** | Provider runs model / you run model |
-| LLM / SLM | 🚚 **Truck / Scooter** | Relatively large / small models; test against your task |
-| Open-weight model | 🔓 **Shared Engine** | Model weights are available under specific license terms |
 
 **Recall:** **Spotlight → Lego → Whiteboard → Meaning GPS**.
 
@@ -48,6 +46,9 @@ flowchart LR
 - **Hosted:** quicker startup; evaluate provider access, confidentiality, availability and cost.
 - **Local:** more runtime control; requires installation, compute, updates and security.
 - **LLM vs SLM:** larger is not automatically better. Compare tested quality, speed, memory needs and price.
+- **Open-weight models:** available weights have license conditions; they are not automatically unrestricted, fully open-source or secure.
+
+**Depth progression:** Beginner: understand tokens and input limits. Engineer: use the named model's tokenizer and measure accuracy. Advanced awareness: long context and retrieval can still introduce stale or unauthorized information.
 
 **Decision rule:** Start with task + data sensitivity + evidence of quality; then choose the simplest model/runtime that meets the need.
 
@@ -71,6 +72,8 @@ for limit in (6, 20):
 **Important:** Real context handling is model/application-specific. To count **real tokens**, use a tokenizer compatible with a **named model**; this example cannot tell you the model's token count or context length.
 
 **If blocked:** No Python? Do it on paper; label evidence as *manual*.
+
+**Optional real-token check:** Use a tokenizer compatible with one named model and record its measured token count. Do not treat this toy word count as real tokens.
 
 ### Lab B — Compare two model answers (18 min)
 Use the **same synthetic prompt** in two models, if available:
@@ -115,6 +118,10 @@ Submit **02_Hour2_Evidence.md** (or one page):
 - Word-budget outputs for 6 and 20, with the limitation clearly stated.
 - Two model responses or *clearly marked illustrative* comparison, plus the four scores.
 - Your two-sentence model-selection decision and the five answers above.
+
+**Assessment (10 points):** Correct word-budget outputs and limitations (3); scored answer comparison with reasons (4); defended model choice (2); memory-chain teach-back (1). **Pass: at least 8/10**; claims about live testing or tokens must match actual evidence.
+
+**Troubleshooting:** Python unavailable → manual word count. Models unavailable → clearly label example responses illustrative. Answers conflict → verify claims independently, never guess.
 
 **Done when:** you explain the four-part memory chain, demonstrate the word-budget limitation, score both outputs fairly and defend one model choice. Trainer review and **actual learner evidence** are required before marking this hour passed.
 
