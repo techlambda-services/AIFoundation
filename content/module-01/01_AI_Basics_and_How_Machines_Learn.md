@@ -1,15 +1,15 @@
 # 01 — AI Basics & How Machines Learn
 
-**Kanchan · AI Foundation · Module 01 · Hour 1 of 2 (60 minutes)**  
-**18 minutes understanding + 42 minutes hands-on · Free, offline-first**
+**Kanchan · AI Foundation · Module 01 · Topic 01 of 02 (not timeboxed)**  
+**Concepts + practical application · Free, offline-first**
 
 > **Memory sentence:** **Choose the problem first. Use rules when rules are enough.**
 
-## 1. Problem, objectives and readiness — 4 min | Understand
+## 1. Problem, objectives and readiness
 
 **Real scenario:** A Linux/DevOps team faces high disk usage, repeated error logs, support tickets and requests to draft incident updates. A colleague says, “Let's use AI for all of it.” Is that a sensible design?
 
-**Outcome:** At the end of this hour, you can:
+**Outcome:** After studying this topic, you can:
 1. Explain **AI, Machine Learning (ML), Deep Learning (DL) and Generative AI (GenAI)** without mixing them up.
 2. Identify **supervised, unsupervised and reinforcement learning**.
 3. Explain **dataset, labels, model, parameters/weights, training, inference and foundation models**.
@@ -17,9 +17,11 @@
 
 **5W+H:** What—AI methods; Why—solve the *right* problem; Who—engineers/trainers; Where—DevOps incident workflows; When—before selecting a model; How—classify, test and review.
 
+**Learning rule:** Study until the concept, examples, and assessment can be explained independently. The TOC's scheduled session time is not a cap on material depth or practice.
+
 **Prerequisites / check:** Basic technical awareness, paper or text editor. No Python, paid API, GPU, account or production access required. Use only **synthetic** incident examples.
 
-## 2. Real-life analogy and Memory Hooks — 6 min | Remember
+## 2. Real-life analogy and Memory Hooks
 
 Imagine an organization where people have different responsibilities. It is a memory aid, **not** a literal hierarchy of job titles.
 
@@ -38,7 +40,7 @@ Imagine an organization where people have different responsibilities. It is a me
 
 **Important distinction:** AI is broader than ML; DL is a form of ML. GenAI is an output-focused category, not simply “another DL layer.” Modern LLM-based GenAI often uses DL.
 
-## 3. Understand once; apply many times — 8 min | Explain
+## 3. Understand once; apply many times
 
 **Which technique fits?**
 
@@ -65,9 +67,9 @@ flowchart LR
 
 **Watch out:** A normal prompt to an existing LLM is **not** weight training. A fluent generated answer is not proof that the answer is correct.
 
-## 4. Practice in one continuous DevOps case — 42 min | Do and check
+## 4. Practice in one continuous DevOps case
 
-### Lab A — Choose the tool, not the buzzword (15 min)
+### Lab A — Choose the tool, not the buzzword
 
 **Task:** Complete **Approach + Why + Risk/approval** for all five scenarios. Reuse the five approaches from Section 3; more than one tool may be involved, but choose the simplest suitable starting point.
 
@@ -83,7 +85,7 @@ flowchart LR
 
 **Expected evidence:** One completed five-row table with a rationale and a safety condition in each row.
 
-### Lab B — Follow a ticket from Gym to Match Day (17 min)
+### Lab B — Follow a ticket from Gym to Match Day
 
 These are **made-up data** for understanding; **no ML model is trained or run here**.
 
@@ -105,9 +107,9 @@ These are **made-up data** for understanding; **no ML model is trained or run he
 
 **Expected evidence:** An annotated table, lifecycle and four T/I answers, plus the limitation of the hypothetical prediction.
 
-### Lab C — Explain it like a corporate trainer (10 min)
+### Lab C — Explain it like a corporate trainer
 
-Using the same incident case, deliver a **two-minute teach-back** without looking at Section 2:
+Using the same incident case, deliver a **brief teach-back** without looking at Section 2:
 
 - Explain **Umbrella → Apprentice → Layer Cake → Creative Studio**.
 - Explain **Gym → Match Day** using T1–T5.
@@ -117,9 +119,9 @@ Then answer two cross-questions: **Does a normal prompt retrain weights?** (No.)
 
 **Expected evidence:** Five lines of teach-back notes; a colleague or trainer can ask the two cross-questions. Practicing aloud alone is acceptable as preparation but is **not** independently observed validation.
 
-## 5. Validate and finish — no additional class time
+## 5. Validate and finish — evidence and acceptance
 
-**One submission:** `01_Hour1_Evidence.md` (or one page) with Lab A table, Lab B lifecycle/T-I answers, Lab C notes, and **one mistake corrected**.
+**One submission:** `01_AI_Basics_Evidence.md` (or one page) with Lab A table, Lab B lifecycle/T-I answers, Lab C notes, and **one mistake corrected**.
 
 **10-point assessment:**
 
@@ -138,4 +140,4 @@ Then answer two cross-questions: **Does a normal prompt retrain weights?** (No.)
 
 **Optional reference:** [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
 
-**Next:** [Hour 2 — LLM Building Blocks & Model Choices](02_LLM_Building_Blocks_and_Model_Choices.md).
+**Next topic:** [ LLM Building Blocks & Model Choices](02_LLM_Building_Blocks_and_Model_Choices.md).
