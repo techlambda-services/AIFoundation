@@ -23,7 +23,9 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 | M01 Topic 01 content quality audit | VALIDATED | Python 3.13.5 run passed: learned threshold=65.0, prediction at 92%=High, missing-class negative test, additional overlap and out-of-range negative cases; teaching-only synthetic classifier, **not a production accuracy claim**; learner acceptance pending |
 | M01 Topic 02 context example | VALIDATED | Executed with Python 3.13.5: 13 words; budget 6 retains 6/drops 7; budget 20 retains 13/drops 0; invalid budget rejected. **This is word-count practice, not real model token measurement.** Model comparison and learner run pending |
 | M01 Interview Master Plan memory hooks | VALIDATED | Both topics now use real-life recall tags, sayable **action phrases**, technical mapping, a worked trace, a cross-question/trap, mind map and memory-lock drill. This is **authoring verification**, not an observed learner recall test. |
-| M01 illustrated visual assets | VALIDATED | Seven distinct, committed SVG images linked inline: Topic 01 = 3; Topic 02 = 4. Each SVG includes an accessible title/description and matches an action-based memory hook. Checked asset paths on main; **static GitHub illustrations, not interactive animations**. |
+| M01 illustrated visual assets | VALIDATED | Seven distinct SVG images linked inline: Topic 01 = 3; Topic 02 = 4. Accessible title/description and paths checked. These remain **static in GitHub Markdown**. |
+| M01 interactive memory explorer | VALIDATED | Offline standalone `visuals/module-01/memory-hook-explorer.html`: 7 selectable stories, 27 meaningful steps, Next/Previous/Play/Pause/Reset, interview traps, keyboard controls and reduced-motion support. Linked from both lessons. **In-browser interaction not independently exercised yet**. |
+| M01 visual acceptance CI | VALIDATED | GitHub Actions run `38366953825` succeeded for `scripts/verify_module01_visuals.py`: XML/SVGs, 20-section topic order, image links, explorer story/steps, accessibility markers and JavaScript syntax. |
 | M01 learner lab evidence | NOT_STARTED | Instructor/learner to execute activities; capture expected vs actual evidence and teach-back |
 | Starter lab environment | NOT_STARTED | Python, virtualenv, FastAPI, model/mock adapter |
 | Foundation capstone | NOT_STARTED | S03–05 |
@@ -34,6 +36,7 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 | CI + reproducibility | NOT_STARTED | Add after runnable code exists |
 
 ## Independent authoring verification
+- A separate offline step-by-step visualizer was added for all seven illustrated memory hooks; the GitHub Markdown pages retain the static SVGs. Static + syntax checks passed in GitHub Actions run `38366953825` (2026-10-13). Actual browser control interaction and observed learner understanding remain pending.
 - Seven SVG files are committed under `assets/module-01/` and referenced with GitHub-relative Markdown image paths (three in Topic 01, four in Topic 02). Java 9 visual reference included photos and SVG/step controls; this update adds rendered SVG image illustrations and keeps interactivity outside the static Markdown scope.
 - Both lesson files match the uploaded DSA reference section order with Memory Hook as the sole added structural section (20 headings per topic, including Completion Check and Next Topic).
 - Memory Hook format now follows the Interview Master Plan: real-life tag → picture → action phrase → concept mapping → worked trace → interview trap → memory lock; mind maps live in Visualization. Prior labels-only hook tables were not compliant.
