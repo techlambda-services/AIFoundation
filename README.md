@@ -16,6 +16,8 @@ Read both files in order: **they follow the uploaded DSA reference structure exa
 
 **Interactive visual explorer:** [Module 01 — seven memory stories and 27 action steps](visuals/module-01/memory-hook-explorer.html). To run, **download the repository ZIP** or clone it, then open `visuals/module-01/memory-hook-explorer.html` in Chrome/Edge/Firefox. Use Next, Previous, Play/Pause, or select a step. Its images are read from `assets/module-01/`; keep the folder structure. Works offline and uses no libraries/API keys. GitHub's file preview displays HTML source rather than running its controls. Reduced-motion and keyboard navigation are included.
 
+**Visual quality check:** Run `python3 scripts/verify_module01_visuals.py` from the repository root. It checks lesson templates, SVG paths/accessibility, seven stories, 27 steps, Next/Previous/Play controls, offline operation and JavaScript syntax if Node.js is installed. [GitHub Actions visual QA](.github/workflows/verify-module01-visuals.yml) runs the checks on relevant commits.
+
 **Illustrated memory hooks:** Both topics now include seven committed SVG illustrations, displayed directly within each Memory Hook section. These pair familiar imagery with action phrases, mind maps and interview recall exercises. [Browse the visual assets](assets/module-01/). GitHub Markdown displays the images as static illustrations.
 
 **Quick memory:** **Umbrella → Apprentice → Layer Cake → Creative Studio** (AI/ML/DL/GenAI); **Gym → Match Day** (training/inference); **Spotlight → Lego → Whiteboard → Meaning GPS** (LLM concepts).
