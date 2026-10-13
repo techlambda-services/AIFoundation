@@ -63,6 +63,8 @@ This analogy is for recall, not a strict organizational chart: GenAI overlaps mu
 
 ### Hook A — Umbrella Office: AI vs ML vs DL vs GenAI
 
+![Illustrated Umbrella Office memory hook showing Cover All, Learn Examples, Stack Layers, Create Content](../../assets/module-01/01-ai-family-office.svg)
+
 **Picture it:** A large office is sheltered under an **umbrella**. An **apprentice** learns how to sort tickets; a specialist builds a **layer cake** of learned representations; a **creative studio** writes a new incident update.
 
 **Say the action phrase:** **"Cover All → Learn Examples → Stack Layers → Create Content."**
@@ -82,6 +84,8 @@ This analogy is for recall, not a strict organizational chart: GenAI overlaps mu
 
 ### Hook B — School, Socks, Game: Three Learning Signals
 
+![Illustrated School, Socks, Game memory hook for Match Labels, Find Groups, Earn Rewards](../../assets/module-01/02-three-learning-signals.svg)
+
 **Picture it:** A teacher checks an **answer key**; a child sorts unmarked **socks** into groups; a player changes moves based on **game points**.
 
 **Say the action phrase:** **"Match Labels → Find Groups → Earn Rewards."**
@@ -99,6 +103,8 @@ This analogy is for recall, not a strict organizational chart: GenAI overlaps mu
 **Trap:** "A chatbot receives a user's thumbs-up. Is it automatically training by reinforcement learning during this chat?" **No**; feedback collection and weight updates are separate processes.
 
 ### Hook C — Gym and Match Day: Model Lifecycle
+
+![Illustrated Gym to Match Day lifecycle: Examples In, Weights Change, New Case In, Prediction Out, Verify](../../assets/module-01/03-training-inference.svg)
 
 **Picture it:** An athlete improves during **gym practice**, then plays a new opponent on **match day**. The coach reviews results to find weaknesses.
 
