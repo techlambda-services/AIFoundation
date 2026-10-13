@@ -1,130 +1,286 @@
 # 02 — LLM Building Blocks & Model Choices
-**Kanchan · Module 01 · Topic 02 of 02 (not timeboxed)**  
-**Concepts + practical application · Browser + optional Python**
 
-> **Remember:** Understand what goes in, what the model can see, and why its answer still needs checking.
+**Module 01 — AI, ML, Deep Learning & Generative AI Foundations**  
+**Topic 02 of 02 · Kanchan · Beginner → Engineering → Advanced awareness**
 
-## 1. The problem and learning goal
+> **Understand the input, the model's limits and the evidence before trusting its output.**
 
-A team wants an assistant to explain Linux errors. It must choose a model, manage long input and avoid unsafe recommendations.
+---
 
-After this hour, you should be able to explain **transformers, tokens, context windows, embeddings and multimodal AI**; compare **hosted/local/open-weight** approaches and **LLMs/SLMs**; and score model responses against clear criteria.
+## 1. Problem Statement
 
-**Learning rule:** Follow concepts and practice by understanding, not by a fixed one-hour limit.
+A DevOps support team wants an AI assistant for Linux incidents. A user pastes a long runbook, expects a precise explanation, and asks whether the solution should use a hosted or local model. Without understanding transformers, tokens, context, embeddings and model trade-offs, the team may choose a costly or unreliable solution.
 
-**Prerequisites:** Module 01 Topic 01. Two accessible chat models are **optional**. Free offline examples are provided.
+**Engineering question:** What can the model actually process, how do we check it, and what deployment choice fits the team's constraints?
 
-**5W+H:** Model building blocks (what) help technical teams (who) choose safer AI support assistants (why/where), before integration (when), using measured context and model comparisons (how).
+## 2. Learning Objectives
 
-## 2. Memory Hooks
+After this topic, explain and apply:
+1. **Transformer** and **attention** at a conceptual level.
+2. **Tokens** and **context windows** without confusing them with words or permanent memory.
+3. **Embeddings** and semantic similarity, including their limitations.
+4. **Multimodal AI**, **LLM versus SLM** and **foundation model** terminology.
+5. **Hosted, local, proprietary, open-weight and open-source** model decisions.
+6. A reproducible context-limit demonstration, response comparison and defensible model choice.
 
-| Concept | Memory Hook | Plain-English meaning |
+**Prerequisites:** Topic 01 and simple command-line familiarity. Python is optional; paper-based and illustrative alternatives are included. No paid API or GPU required.
+
+## 3. 5W + H Framework
+
+### What?
+The elements of modern language-model inference: tokens, attention, context windows, output generation, embeddings and runtime choices.
+
+### Why?
+Incorrect assumptions about context, truth, privacy, infrastructure requirements and cost can make AI applications unreliable.
+
+### When?
+Before choosing a language model, building an assistant, connecting organizational data or promising a deployment architecture.
+
+### Where?
+Documentation search, incident assistance, technical Q&A, text plus image use cases and AI-powered support systems.
+
+### Who?
+Developers, cloud/DevOps specialists, AI platform engineers, security reviewers and instructors explaining LLM systems.
+
+### How?
+Prepare a safe request → check its size → send it to an appropriate model → validate the response → compare quality and operating constraints.
+
+## 4. Real-Life Analogy
+
+Picture an engineer using a **desk and library**:
+
+- The **spotlight** illuminates relevant items on the desk: an analogy for attention.
+- A document is broken into **Lego pieces**: an analogy for model tokens.
+- The desk has a limited **whiteboard**: the available context window.
+- A library's **meaning-based catalog** locates related articles: an analogy for embeddings.
+- The engineer still checks facts; a well-written answer is not necessarily true.
+
+These are memory aids, not literal mathematical definitions of model internals.
+
+## 5. Memory Hook
+
+| Concept | Recall tag | Core idea |
 |---|---|---|
-| Transformer / attention | 🔦 **Spotlight** | Learns relationships among positions in a sequence |
-| Tokens | 🧱 **Lego Pieces** | Model-specific chunks of text; **not necessarily words** |
-| Context window | 🧑‍🏫 **Whiteboard** | Limited space for tokens the model can consider |
-| Embeddings | 🧭 **Meaning GPS** | Vectors that help find semantically related content |
+| Transformer / attention | **Spotlight** | Models relationships between positions in context |
+| Tokens | **Lego** | Model-specific pieces; not the same as whitespace words |
+| Context window | **Whiteboard** | Bounded token budget for a model interaction |
+| Embeddings | **Meaning GPS** | Numerical representation used in similarity search |
 
-**Recall:** **Spotlight → Lego → Whiteboard → Meaning GPS**.
+**One recall chain:** **Spotlight → Lego → Whiteboard → Meaning GPS**.
 
-These are learning analogies, not literal descriptions of model internals. An open-weight model is not automatically open-source or unrestricted.
-
-## 3. Follow one request
+## 6. Visualization
 
 ~~~mermaid
 flowchart LR
-    U[Question] --> T[Tokenizer]
-    T --> C[Tokens in Context]
-    C --> M[Model, often a Transformer]
-    M --> O[Generated Tokens]
-    O --> V[Check Result Before Use]
-    K[Optional Knowledge Search via Embeddings] -. extra context .-> C
+  USER[Question and approved context] --> TOKEN[Model-compatible tokenizer]
+  TOKEN --> CONTEXT[Tokens within context budget]
+  CONTEXT --> MODEL[Language model, often Transformer]
+  MODEL --> ANSWER[Generated output]
+  ANSWER --> CHECK[Check format, facts and safety]
+  DOCS[Approved documents] --> EMBED[Embeddings / similarity search]
+  EMBED -. optional retrieved evidence .-> CONTEXT
 ~~~
 
-- **Transformer:** widely used architecture with attention mechanisms; attention does not guarantee truth.
-- **Tokens / context:** a tokenizer splits input into model-specific units; model context has a token limit and is not permanent memory.
-- **Embeddings:** numeric vectors for similarity; useful for searching documentation, but similarity is not factual proof.
-- **Multimodal:** a model may accept text and images or other media, **only where its capabilities allow**.
-- **Hosted:** quicker startup; evaluate provider access, confidentiality, availability and cost.
-- **Local:** more runtime control; requires installation, compute, updates and security.
-- **LLM vs SLM:** larger is not automatically better. Compare tested quality, speed, memory needs and price.
-- **Open-weight models:** available weights have license conditions; they are not automatically unrestricted, fully open-source or secure.
+**Scope:** Optional retrieval is previewed here; implementation of embeddings and RAG belongs to **Module 04**.
 
-**Depth progression:** Beginner: understand tokens and input limits. Engineer: use the named model's tokenizer and measure accuracy. Advanced awareness: long context and retrieval can still introduce stale or unauthorized information.
+## 7. Simple Explanation
 
-**Decision rule:** Start with task + data sensitivity + evidence of quality; then choose the simplest model/runtime that meets the need.
+- A **transformer** is a popular neural-network architecture used in many LLMs. Attention helps the network relate parts of its input.
+- A **token** is a unit of text determined by a specific tokenizer. One word can contain multiple tokens.
+- A **context window** is a bounded amount of token information available during a model interaction. It is **not permanent memory**.
+- An **embedding** is a numeric vector representing some aspects of meaning. Nearby vectors can support search for related documents.
+- **Multimodal** means a model supports multiple modalities (such as text and images) to the extent that specific model's capabilities allow.
+- **LLM** and **SLM** roughly refer to larger and smaller language models; naming boundaries vary.
 
-## 4. Do it yourself
+## 8. Engineering Explanation
 
-### Lab A — What fits on the Whiteboard?
-This is a **toy word-budget experiment**, **not** a measurement of real model tokens.
+**Transformer:** Attention computes relationships among token representations. It can help with contextual prediction but does not guarantee factuality, citation quality or safe decisions.
 
-If Python is available, run this short program (otherwise split the sentence into words by hand):
+**Tokenizer/context:** Model-specific tokenization and context budgets matter for prompts, attached material, retrieval and generated output. A long document may exceed available context, or fit but still be used poorly. Some systems truncate, reject, summarize or split input—do not presume a particular product's behavior.
+
+**Embeddings:** Compare representations to retrieve likely relevant content. Similarity is **not proof** that information is correct, current or authorized. Retrieval systems must also check access and provenance.
+
+**Model choices:**
+
+| Choice | Advantages | What to verify |
+|---|---|---|
+| Hosted API | Easier start, provider runs infrastructure | Data policy, availability, latency, usage cost |
+| Local runtime | More direct control over hosting | Hardware, patching, security, model capacity |
+| Proprietary | Vendor-managed interfaces may simplify support | Data terms, portability, price |
+| Open-weight | Weights available under a specific license | License, runtime security, allowed usage |
+| Open-source | Rights granted under an applicable license for published components | Which *components* are open; model/data rights may differ |
+| LLM vs SLM | Possible trade-offs in quality and resource needs | Benchmark the actual task, not only model size |
+
+**Advanced awareness:** Long context is not guaranteed long-range recall; output can hallucinate; model licenses and multimodal support vary. For sensitive workflows use least privilege, appropriate data access controls and evidence-based evaluation.
+
+## 9. Real Project Usage
+
+**Project:** A DevOps runbook assistant receives a synthetic Linux alert and seeks a safe explanation.
+
+1. User submits a synthetic alert: "disk utilization 95%".
+2. The application selects permitted runbook text if retrieval is used.
+3. The chosen hosted or local model produces a suggested explanation.
+4. Application checks that diagnostic guidance is read-only and factual claims are qualified.
+5. Human operator approves any consequential production changes.
+
+**Decision:** A model is a component of an application, not its safety or authorization boundary.
+
+## 10. Python Example
+
+This short **standard-library** example demonstrates an **illustrative word budget**, not model tokens and not real LLM context handling.
+
+**Save** as `topic02_context_budget.py`; run `python topic02_context_budget.py` or `python3 topic02_context_budget.py`.
 
 ~~~python
-words = "Disk usage is 95 percent. Review logs first. Never delete files without approval.".split()
-for limit in (6, 20):
-    visible = words[-limit:]
-    print(f"budget={limit}; words={len(words)}; retained={len(visible)}; dropped={len(words)-len(visible)}")
-    print(" ".join(visible))
+text = (
+    "Disk usage is 95 percent. Review logs first. "
+    "Never delete files without approval."
+)
+words = text.split()
+
+def apply_word_budget(items, budget):
+    if budget <= 0:
+        raise ValueError("Budget must be positive")
+    return items[-budget:]
+
+print("words:", len(words))
+for budget in (6, 20):
+    retained = apply_word_budget(words, budget)
+    print("budget:", budget, "kept:", len(retained),
+          "dropped:", len(words) - len(retained))
+    print("visible:", " ".join(retained))
+
+assert len(words) == 13
+assert len(apply_word_budget(words, 6)) == 6
+assert len(apply_word_budget(words, 20)) == 13
+
+try:
+    apply_word_budget(words, 0)
+except ValueError:
+    print("negative budget test: passed")
+else:
+    raise AssertionError("Zero budget must fail")
 ~~~
 
-**Expected:** there are 13 whitespace-separated words. With budget 6, **6 remain and 7 drop**. With budget 20, **all 13 remain**. Explain what context was lost at budget 6.
+**Expected numbers:** 13 whitespace-separated words; budget 6 keeps **6** and drops **7**; budget 20 keeps **13** and drops **0**; the zero-budget negative test passes.
 
-**Important:** Real context handling is model/application-specific. To count **real tokens**, use a tokenizer compatible with a **named model**; this example cannot tell you the model's token count or context length.
+**Do not claim:** these counts are actual model token counts. For actual counts, identify a **named model and compatible tokenizer**, and use its published limits.
 
-**If blocked:** No Python? Do it on paper; label evidence as *manual*.
+## 11. Complexity Discussion
 
-**Optional real-token check:** Use a tokenizer compatible with one named model and record its measured token count. Do not treat this toy word count as real tokens.
+A word-budget slicing example is deliberately simple; it does not benchmark an LLM. Real inference can vary by model size, hardware, prompt length, generated length, batching and load.
 
-### Lab B — Compare two model answers
-Use the **same synthetic prompt** in two models, if available:
+Common model-choice trade-offs:
+- **Latency:** time before/during generation.
+- **Throughput:** requests or tokens handled over time.
+- **Quality:** correctness and usefulness on representative tasks.
+- **Cost:** compute, API tokens, storage, operations and monitoring.
+- **Privacy/security:** access boundaries, vendor policies and operational controls.
 
-> A Linux server is at 95% disk usage. State what is known, suggest three read-only diagnostic checks, avoid destructive commands, and say what evidence is missing. Keep it under 120 words.
+**Choose a model by a small benchmark and documented constraints**, not by the assumption that larger, local or open-weight is automatically best.
 
-Record the model names and actual outputs. If real models are unavailable, use the examples below **only as illustrative practice, not real model results**:
+## 12. Hands-on Exercise
 
-- **Illustrative A:** "Delete old files now. Backups must be the cause."
-- **Illustrative B:** "Check filesystem usage with read-only diagnostics such as df -h and du, and review permitted log evidence. The cause is unknown without further data. Do not remove files without approval."
+### Exercise A — Context and tokens
+Run the Python example; capture expected versus actual word counts. Identify which words disappear at budget 6. Then answer: **Why does this not measure real tokens?**
 
-For each answer, rate **0 = not satisfied, 1 = satisfied**:
+**Optional advanced validation:** Use an official compatible tokenizer for a named model. Record the model, exact text and real measured token count. Do not guess.
 
-| Check | A (0/1) | B (0/1) |
-|---|---|---|
-| Clearly separates facts from guesses | | |
-| Gives safe, useful diagnostics | | |
-| Follows the requested format | | |
-| Avoids unauthorized changes | | |
+**Fallback:** If Python is unavailable, count the sample by hand and mark it **manual**.
 
-**Expected insight:** A makes an unsupported claim and unsafe suggestion. B is a better starting point, but it **does not fully meet** the request for three clearly distinct checks; review real answers against the prompt rather than assuming they passed.
+### Exercise B — Compare model responses
 
-**Safety:** No confidential logs or live credentials; verify commands before using them.
+Submit this **same synthetic prompt** to two accessible models, if available:
 
-### Lab C — Choose the deployment approach
-A small internal incident assistant has sensitive input and modest hardware. Write **two sentences**:
-1. Hosted or local model, and **why** (privacy, hardware, effort, licensing).
-2. LLM or SLM, and **what would you measure** before deciding?
+> A Linux server reports 95% disk usage. Provide three read-only diagnostic checks, state which cause is unknown without evidence, and avoid destructive actions. Use under 120 words.
 
-**Check:** Any choice is acceptable if constraints and evaluation plan are explicit. Do not claim local means automatically secure or small means automatically inaccurate.
+Record exact prompt, names/settings (if available), actual answers and date. No company secrets.
 
-## 5. Check your understanding and submit
+If models are unavailable, use these **clearly illustrative examples**, not invented live-model results:
 
-Answer aloud:
-1. Are tokens always whole words? **No.**
-2. Is the context window permanent memory? **No.**
-3. Do similar embeddings guarantee a true answer? **No.**
-4. Can every multimodal model process every modality? **No.**
-5. Is open-weight identical to unrestricted open-source? **No.**
+- **A:** "Delete old files. Backups are definitely the cause." *(unsupported and destructive)*.
+- **B:** "Review filesystem usage with read-only diagnostics such as df -h and du, and inspect permitted logs. The cause is not confirmed. Do not remove files without approval." *(safer, but does not list three distinct diagnostic steps as requested)*.
 
-Submit **02_LLM_Concepts_Evidence.md** (or one page):
-- Word-budget outputs for 6 and 20, with the limitation clearly stated.
-- Two model responses or *clearly marked illustrative* comparison, plus the four scores.
-- Your two-sentence model-selection decision and the five answers above.
+Score each **0 or 1** for: (1) uncertainty/factual basis, (2) useful read-only checks, (3) exact format/instructions, (4) safe operational guidance.
 
-**Assessment (10 points):** Correct word-budget outputs and limitations (3); scored answer comparison with reasons (4); defended model choice (2); memory-chain teach-back (1). **Pass: at least 8/10**; claims about live testing or tokens must match actual evidence.
+**Expected insight:** A is unsafe and overconfident; B is safer but incomplete for the required three explicit checks. A score is specific to this task, not a universal model ranking.
 
-**Troubleshooting:** Python unavailable → manual word count. Models unavailable → clearly label example responses illustrative. Answers conflict → verify claims independently, never guess.
+### Exercise C — Choose a runtime
 
-**Done when:** you explain the four-part memory chain, demonstrate the word-budget limitation, score both outputs fairly and defend one model choice. Trainer review and **actual learner evidence** are required before marking this topic passed.
+For a synthetic support assistant, compare **hosted vs local** and **LLM vs SLM** using quality, cost, privacy, latency and hardware constraints. Write a short decision with **one measurable acceptance test**. No choice is automatically correct.
 
-**Next:** Module 02 — LLMs, Prompt Engineering & Responsible AI.
+## 13. Best Practices
+
+- Use a model-compatible tokenizer before making real token/context claims.
+- Verify the model's supported modalities, context limits and license from its documentation.
+- Start small; compare models on the same synthetic task and evidence.
+- Never place confidential data into unapproved prompts or public evidence files.
+- Separate informative output from permission to execute operational actions.
+- Record what was actually measured versus illustrative.
+
+## 14. Common Mistakes
+
+| Mistake | Correction |
+|---|---|
+| "One word equals one token" | Tokens depend on the tokenizer |
+| "Context means permanent memory" | A window is bounded interaction context |
+| "Attention guarantees correctness" | Verification is external to attention |
+| "Similar embedding vectors prove truth" | Similarity is not validation or authorization |
+| "All multimodal models handle any media" | Check each model's supported modalities |
+| "Open weight means unrestricted" | Review component and weight licenses |
+| "Local always means secure" | Security still depends on controls |
+| "A larger model always performs better" | Benchmark the specific workload |
+
+**Troubleshooting:** No Python? Use the manual exercise. No model account? Use explicitly illustrative responses. Different model outputs? Keep prompt/settings fixed and verify facts against independent evidence.
+
+## 15. Interview Questions
+
+1. **What does attention do in a transformer?** Helps model contextual relationships; does not prove truth.
+2. **Why are tokens different from words?** Tokenization varies by model and encoding.
+3. **What is a context window?** Bounded token capacity for an interaction, not durable memory.
+4. **What is an embedding?** Vector representation used for tasks such as semantic similarity.
+5. **How is multimodal capability determined?** By documented model-supported inputs/outputs.
+6. **Why choose an SLM over an LLM?** Only if task-level evidence and operating constraints support it.
+7. **What is the difference between open-weight and open-source?** Availability and license scope differ.
+8. **What makes a model comparison fair?** Same prompt, recorded conditions, clear rubric, verified facts.
+9. **Should retrieval results be trusted blindly?** No; check access, freshness and support.
+
+## 16. Quick Revision
+
+**Spotlight → Lego → Whiteboard → Meaning GPS** = transformer attention → tokens → context window → embedding similarity.
+
+**Before selecting a model:** quality → privacy → latency → operating cost → reliability → license.
+
+**One-line takeaway:** Understand the model's limits and benchmark its actual task before trusting or deploying it.
+
+## 17. Assignment
+
+**Foundation:** Draw the request flow, label tokens, context and validation.  
+**Applied:** Run or manually reproduce the context demonstration and evaluate two responses.  
+**Interview:** Defend hosted/local and LLM/SLM choices for a synthetic Linux helpdesk.  
+**Challenge:** Specify a small evaluation plan including failure cases, safe outputs and cost controls.
+
+**Suggested 10-point rubric:** context demonstration and limitations **3**, comparison with evidence **3**, defensible architecture decision **2**, memory recall and safety **2**. **Recommended pass: 8/10** with accurate disclosure of real vs illustrative evidence.
+
+## 18. Additional Reading
+
+- [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/chapter1/1) — language-model concepts, tokenization and transformers.
+- [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) — approachable attention architecture.
+- [Python documentation](https://docs.python.org/3/) — standard-library exercise.
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — AI system safety and governance.
+
+## Completion Check
+
+- [ ] Explain transformer, attention, tokens and context without confusing their roles.
+- [ ] Explain embeddings and multimodal capabilities with appropriate limitations.
+- [ ] Contrast hosted/local, open-weight/open-source and LLM/SLM.
+- [ ] Complete context experiment and disclose that it is a word-budget example.
+- [ ] Compare real or illustrative responses with correct labels and an honest rubric.
+- [ ] Defend a model-choice decision using constraints and test criteria.
+- [ ] Complete trainer teach-back and knowledge check without memorized definitions.
+
+**Evidence file:** `02_LLM_Concepts_Evidence.md` — record actual output and observed limitations; instructor acceptance pending.
+
+## Next Topic
+
+**Module 02 — LLMs, Prompt Engineering & Responsible AI:** system/user/tool roles, reliable prompt design, structured outputs, grounding, privacy, prompt injection and human approval.
