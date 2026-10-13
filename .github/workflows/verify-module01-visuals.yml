@@ -1,0 +1,31 @@
+name: Verify Module 01 Visuals
+
+on:
+  push:
+    paths:
+      - 'assets/module-01/**'
+      - 'content/module-01/**'
+      - 'visuals/module-01/**'
+      - 'scripts/verify_module01_visuals.py'
+      - '.github/workflows/verify-module01-visuals.yml'
+  pull_request:
+    paths:
+      - 'assets/module-01/**'
+      - 'content/module-01/**'
+      - 'visuals/module-01/**'
+      - 'scripts/verify_module01_visuals.py'
+      - '.github/workflows/verify-module01-visuals.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Verify static and interactive visuals
+        run: python3 scripts/verify_module01_visuals.py
