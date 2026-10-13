@@ -59,15 +59,85 @@ This analogy is for recall, not a strict organizational chart: GenAI overlaps mu
 
 ## 5. Memory Hook
 
-| Topic | Short hook | Recall |
-|---|---|---|
-| AI → ML → DL → GenAI | **Umbrella → Apprentice → Layer Cake → Creative Studio** | Broad field → data-based learning → deep neural models → content generation |
-| Training → Inference | **Gym → Match Day** | Update learned parameters → use learned parameters |
-| Supervised / unsupervised / reinforcement | **Answer Key / Sorting Socks / Game Points** | Labeled examples / discover groups / rewards from actions |
+**Interview Master Plan rule:** **Real-life picture → action phrase → exact concept mapping → trace → interview trap → memory lock.** A name alone is not a memory hook.
 
-**Memory test:** Without reading, explain the six words **Umbrella, Apprentice, Layer Cake, Creative Studio, Gym, Match Day** using one incident-ticket example.
+### Hook A — Umbrella Office: AI vs ML vs DL vs GenAI
+
+**Picture it:** A large office is sheltered under an **umbrella**. An **apprentice** learns how to sort tickets; a specialist builds a **layer cake** of learned representations; a **creative studio** writes a new incident update.
+
+**Say the action phrase:** **"Cover All → Learn Examples → Stack Layers → Create Content."**
+
+| Action | Exact engineering meaning |
+|---|---|
+| **Cover All** | **AI** is the broad discipline, including rules and ML |
+| **Learn Examples** | **ML** fits patterns from datasets |
+| **Stack Layers** | **DL** is ML using multi-layer neural networks |
+| **Create Content** | **GenAI** generates text, code or media, often using DL |
+
+**Trace:** For a disk incident: (1) an AI system could include a **fixed alert rule**; (2) ML could learn from labeled tickets; (3) a deep model could learn more complex text features; (4) a GenAI assistant could draft a reviewed incident summary. These are **alternative or overlapping capabilities**, not a required four-stage pipeline.
+
+**Interview answer (20 seconds):** "AI is the umbrella. ML learns from examples, and DL is a neural-network family within ML. GenAI describes systems generating content; modern LLM-based GenAI commonly uses deep learning."
+
+**Trap:** "Is all GenAI exactly one additional layer of DL?" **No.** The office story aids recall, not an exhaustive class hierarchy.
+
+### Hook B — School, Socks, Game: Three Learning Signals
+
+**Picture it:** A teacher checks an **answer key**; a child sorts unmarked **socks** into groups; a player changes moves based on **game points**.
+
+**Say the action phrase:** **"Match Labels → Find Groups → Earn Rewards."**
+
+| Action | Learning technique | Micro-scenario |
+|---|---|---|
+| **Match Labels** | Supervised learning | Use tickets with known "High"/"Low" severity |
+| **Find Groups** | Unsupervised learning | Group previously unlabeled error messages |
+| **Earn Rewards** | Reinforcement learning | Learn actions from reward in a **simulation** |
+
+**Trace:** Ask "Do we have correct target labels?" → **Yes: supervised**. **No:** "Are we discovering structure?" → **Unsupervised**. "Are we choosing actions and receiving rewards?" → **Reinforcement**. These are diagnostic clues, not an automatic algorithm-selector.
+
+**Interview answer:** "Supervised learning uses labeled examples; unsupervised learning finds structure without target labels; reinforcement learning learns policies from action-reward interaction."
+
+**Trap:** "A chatbot receives a user's thumbs-up. Is it automatically training by reinforcement learning during this chat?" **No**; feedback collection and weight updates are separate processes.
+
+### Hook C — Gym and Match Day: Model Lifecycle
+
+**Picture it:** An athlete improves during **gym practice**, then plays a new opponent on **match day**. The coach reviews results to find weaknesses.
+
+**Say the action phrase:** **"Examples In → Weights Change → New Case In → Prediction Out → Verify."**
+
+| Action | Model lifecycle |
+|---|---|
+| **Examples In** | Collect a training dataset with features and, for supervised tasks, labels |
+| **Weights Change** | Training fits model parameters |
+| **New Case In** | Send previously unseen input to a trained model |
+| **Prediction Out** | Inference applies the existing parameters |
+| **Verify** | Compare with independent evidence or labeled test cases |
+
+**Trace:** In the Topic 01 Python example, four labeled disk-use cases determine a threshold of **65** (toy **training**). The new **92%** usage produces **High** (**inference**); evaluate accuracy only with appropriate unseen labeled data.
+
+**Interview answer:** "Training updates learned parameters using data; inference applies those parameters to fresh input. An ordinary prompt does not retrain a model."
+
+**Trap:** "If the output sounds correct, is the model validated?" **No**—prediction quality requires testing.
+
+**Memory lock — close the page:** Say **Cover All → Learn Examples → Stack Layers → Create Content**; **Match Labels → Find Groups → Earn Rewards**; **Examples In → Weights Change → New Case In → Prediction Out → Verify**. Explain one *new* DevOps example for each and answer the three traps without reading.
 
 ## 6. Visualization
+
+**Interview Master Plan mind map** — see the relationships behind the recall phrases.
+
+~~~text
+AI — Cover All
+├─ Rules: predefined decisions (no model training needed)
+└─ ML — Learn Examples
+   ├─ Supervised — Match Labels
+   ├─ Unsupervised — Find Groups
+   ├─ Reinforcement — Earn Rewards
+   └─ DL — Stack Layers
+        └─ Modern LLM-based GenAI often uses DL — Create Content
+
+Model lifecycle — Gym → Match Day
+Examples In → Weights Change → New Case In → Prediction Out → Verify
+~~~
+
 
 ~~~mermaid
 flowchart TB
@@ -225,11 +295,13 @@ Explain the memory hooks without looking, then answer: **Does a prompt retrain t
 
 ## 16. Quick Revision
 
-**Family:** Umbrella → Apprentice → Layer Cake → Creative Studio.  
-**Lifecycle:** Gym → Match Day.  
-**Learning signals:** Answer Key / Sorting Socks / Game Points.
+**AI family:** **Cover All → Learn Examples → Stack Layers → Create Content**.  
+**Learning signals:** **Match Labels → Find Groups → Earn Rewards**.  
+**Model lifecycle:** **Examples In → Weights Change → New Case In → Prediction Out → Verify**.
 
-**One-line takeaway:** Choose a technique based on the available data and risk, not because an AI model is fashionable.
+**Interview recall drill:** Say each action phrase, explain its technical meaning, then apply it to one fresh incident scenario **without reading**. If you can repeat the name but cannot trace the actions, the hook is not yet mastered.
+
+**One-line takeaway:** Choose the technique based on data, task and operational risk—not because a model sounds advanced.
 
 ## 17. Assignment
 
