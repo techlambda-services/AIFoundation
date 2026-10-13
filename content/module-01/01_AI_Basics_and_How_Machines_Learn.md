@@ -59,6 +59,8 @@ This analogy is for recall, not a strict organizational chart: GenAI overlaps mu
 
 ## 5. Memory Hook
 
+**Interactive visual walkthrough:** [Open the offline Module 01 Memory Hook Explorer](../../visuals/module-01/memory-hook-explorer.html) after downloading/cloning this repository; open the HTML file in a browser to use Next, Previous, Play and memory-lock drills. The SVG illustrations below work directly in GitHub Markdown without a browser app.
+
 **Interview Master Plan rule:** **Real-life picture → action phrase → exact concept mapping → trace → interview trap → memory lock.** A name alone is not a memory hook.
 
 ### Hook A — Umbrella Office: AI vs ML vs DL vs GenAI
