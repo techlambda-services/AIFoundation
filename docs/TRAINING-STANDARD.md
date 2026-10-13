@@ -1,33 +1,45 @@
-# Techlambda content and quality standard
+# Techlambda Content Standard — Kanchan AI Foundation
 
-All teaching files should progress **Beginner → Professional/Engineering → Advanced** and aim for **30% theory / 70% hands-on**.
+**Source of structure:** `01-Introduction-to-DSA(3).md` (user-supplied DSA reference). Preserve its section order and separation. **Only one section is added: Memory Hook immediately after Real-Life Analogy.** Topic-specific technology substitutions (such as Python Example instead of Java Example) are allowed; no other headings are collapsed or skipped.
 
-## Topic content catalogue (combine related items; not separate headings)
-Core flow for every lesson: problem and objectives → analogy with memory hook → explanation → practice → expected results and validation → short evidence and scored check → next topic.
+## Required section order for every topic
 
-Additional content (use only when it supports learning): Problem/context; objectives; prerequisites and assumptions; 5W+H; real-life analogy; **Memory Hook (short, memorable real-life recall tag + precise concept mapping)**; beginner explanation; professional explanation; advanced perspective; architecture diagram; mind map; core concepts; glossary; tools/KPIs; worked example; real project application; scenario; guided lab; expected output; validation; evidence/submission; mini project; research notebook; case study; decision scenario; mistakes; best practices; troubleshooting; performance/security/cost trade-offs; viva/cross-questions; interview questions; quick revision; knowledge check; MCQs; subjective questions; assignments (foundation/applied/interview/challenge); assessment rubric; definition of done; references; takeaways; next topic.
+1. **Problem Statement**
+2. **Learning Objectives**
+3. **5W + H Framework** — What, Why, When, Where, Who, How
+4. **Real-Life Analogy**
+5. **Memory Hook** — **only new section** compared with the reference
+6. **Visualization**
+7. **Simple Explanation**
+8. **Engineering Explanation**
+9. **Real Project Usage**
+10. **Python / AI Example** — equivalent role to Java Example in DSA reference
+11. **Complexity Discussion** — resource, quality, latency, operational cost and trade-offs where applicable
+12. **Hands-on Exercise**
+13. **Best Practices**
+14. **Common Mistakes**
+15. **Interview Questions**
+16. **Quick Revision**
+17. **Assignment**
+18. **Additional Reading**
 
-## Engineering safeguards
-- Keep lessons in ordered topic files (avoid a folder per topic).
-- Use reproducible local-first labs; prefer free/open tools; record any cloud/API cost separately.
-- Never commit real API keys, tokens, personal data, customer documents or private endpoints.
-- Follow KISS/DRY/YAGNI/SOLID as applicable and validate before claiming completion.
-- Favor vendor-independent design; state concrete implementation tools as replaceable examples.
-- Distinguish working implementations from architectural demonstrations.
-- Include failure handling, permissions, observability and evaluation when an AI system performs tool actions.
+Then retain the reference's two closing sections, unnumbered:
+- **Completion Check** — checklist verified with evidence
+- **Next Topic**
 
-## Acceptance checklist
-- Covers the source TOC and learning outcomes; contact hours are a scheduling estimate, not a content restriction.
-- Code and environment steps tested on a declared platform.
-- Expected outputs and negative/error cases specified.
-- Diagrams and explanation agree with implemented architecture.
-- Evidence attached and rubric scored.
-- README, checkpoint and related artifacts updated together.
+## Teaching quality rules
 
-## Keep delivery simple (KISS · DRY · YAGNI · SOLID)
-- The topic-content items above are a **quality checklist**, not 35 required headings. Combine related requirements into **5–7 readable sections** per topic, without an imposed duration.
-- Every topic uses **one main analogy and only the most useful memory hooks**, concise concepts, one visual if it adds clarity, hands-on work, validation/evidence and a next step.
-- **KISS:** explain one idea once in plain language. **DRY:** link to shared concepts rather than restating them. **YAGNI:** remove advanced material not required for the approved TOC/outcome.
-- **SOLID (where code exists):** keep examples small, single-purpose and easy to extend/test; do not teach unnecessary abstractions in foundational conceptual sessions.
-- **Do not timebox the learning material.** Course/session durations are for delivery planning, not caps on topic depth, examples, labs or interview preparation. Cover the source TOC and demonstrated learner understanding before marking complete.
-- Keep **30% explanation / 70% practical application** as a teaching target, without prescribing minutes or a file count. Prefer one concise evidence submission per topic, and label any illustrative activities honestly.
+- Apply **KISS** within sections: concise, plain, precise explanations. Do **not** remove, merge, reorder or renumber sections to make the file shorter.
+- Apply **DRY**: link or briefly reference a prior explanation; do not repeat paragraphs across sections.
+- Apply **YAGNI**: do not add unrelated technologies, theoretical detours, libraries or labs. Include TOC-mandated concepts.
+- Apply **SOLID** only when teaching code or design: small, single-purpose examples that are simple to test and reuse; no unnecessary design-pattern demonstrations.
+- Progress from **Beginner → Engineering → Advanced awareness** with the same learning outcome, using real-life examples and a useful diagram.
+- Maintain a **30% explanation / 70% applied-work** training objective; **do not cap content to 60 minutes** or label topic files Hour 1/Hour 2. Scheduled contact time is planning metadata only.
+- Each code lab identifies prerequisites, how to run, expected output, negative/error case, validation and safe evidence; do not claim executions without records.
+- Prefer free, local-first tools, synthetic training inputs and no API keys. Never submit customer records or credentials.
+- Provide expected answers for checks, a simple assessment rubric and instructor review gating; never claim a learner passed without learner evidence.
+- Keep **one ordered Markdown file per topic**; no folder per topic.
+
+## Review gate
+
+Review heading order, source TOC coverage, teaching clarity, lab reproducibility, mistakes and safe assumptions, expected versus actual evidence and cross-file README/COURSE-STATE references. An authored manuscript can be structurally **VALIDATED** while actual learner execution remains **PENDING**.
