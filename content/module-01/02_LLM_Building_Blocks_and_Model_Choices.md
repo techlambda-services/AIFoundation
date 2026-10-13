@@ -59,16 +59,104 @@ These are memory aids, not literal mathematical definitions of model internals.
 
 ## 5. Memory Hook
 
-| Concept | Recall tag | Core idea |
-|---|---|---|
-| Transformer / attention | **Spotlight** | Models relationships between positions in context |
-| Tokens | **Lego** | Model-specific pieces; not the same as whitespace words |
-| Context window | **Whiteboard** | Bounded token budget for a model interaction |
-| Embeddings | **Meaning GPS** | Numerical representation used in similarity search |
+**Interview Master Plan rule:** **Real-life picture → action phrase → precise technical mapping → short trace → interview trap → memory lock.** This is more than a list of memorable labels.
 
-**One recall chain:** **Spotlight → Lego → Whiteboard → Meaning GPS**.
+### Hook A — Library Desk: Token, Context and Attention
+
+**Picture it:** An engineer at a library desk breaks a document into **Lego pieces**, arranges only what fits on a **whiteboard**, and shines a **spotlight** on relevant relationships.
+
+**Say the action phrase:** **"Break into Pieces → Fit the Board → Relate the Pieces → Check the Answer."**
+
+| Action | Precise meaning |
+|---|---|
+| **Break into Pieces** | A named model's tokenizer maps text into model-specific tokens |
+| **Fit the Board** | The model interaction has a limited token context; systems handle excess input differently |
+| **Relate the Pieces** | Transformer attention models relationships between representations |
+| **Check the Answer** | Generated output needs separate factual and safety verification |
+
+**Trace:** For the phrase "disk usage 95 percent": the tokenizer produces model-specific tokens (not necessarily four words); those tokens must fit the model's current context capacity; a model generates an answer using learned relationships; a reviewer checks diagnostics and uncertainty.
+
+**Interview answer:** "A model-specific tokenizer converts text to tokens; the context window limits what is available; attention helps represent relationships. None of these guarantees a correct answer."
+
+**Trap:** "Is one whitespace word always one token, or is the context window permanent memory?" **No to both.** Our Python example counts words **only**.
+
+### Hook B — Meaning GPS: Embeddings and Retrieval
+
+**Picture it:** You search an enormous library with **Meaning GPS** instead of matching exact titles. Nearby shelf locations suggest related runbooks, but you still open and verify the document.
+
+**Say the action phrase:** **"Encode Meaning → Find Neighbors → Read Sources → Verify Facts."**
+
+| Action | Engineering mapping |
+|---|---|
+| **Encode Meaning** | A suitable embedding model represents text as vectors |
+| **Find Neighbors** | Similarity search returns likely relevant passages |
+| **Read Sources** | The application supplies approved retrieved context when appropriate |
+| **Verify Facts** | Check authorization, provenance, freshness and factual support |
+
+**Trace:** Query "server almost out of space" can retrieve a document titled "filesystem capacity alerts" without exact shared keywords. It is a **hypothetical retrieval example**, not an executed search or proof that a result is correct.
+
+**Interview answer:** "Embeddings help retrieve semantically related material; similarity is a ranking signal, not proof of truth, permission or recency."
+
+**Trap:** "Does embedding similarity certify that a runbook is safe?" **No.** This topic introduces the concept; the real RAG implementation belongs to Module 04.
+
+### Hook C — Restaurant vs Home Kitchen: Hosted vs Local
+
+**Picture it:** At a **restaurant**, someone else cooks and manages the kitchen; in a **home kitchen**, you control ingredients and equipment but do all the upkeep.
+
+**Say the action phrase:** **"Provider Runs → Verify Terms; We Run → Maintain and Secure."**
+
+| Decision | Engineering meaning |
+|---|---|
+| **Provider Runs** | Hosted model API; provider operates model infrastructure |
+| **Verify Terms** | Check cost, service reliability and data-handling requirements |
+| **We Run** | Locally hosted model; your team controls deployment runtime |
+| **Maintain and Secure** | Your team owns compute planning, patching, access and incident response |
+
+**Trace:** For a sensitive internal ticket assistant: list data policy, hardware and availability requirements; compare an approved hosted option against a supported local runtime; select only after task-level tests.
+
+**Interview answer:** "Hosted can reduce operational burden; local offers hosting control but adds infrastructure responsibility. Neither is automatically private, secure or cheaper."
+
+**Trap:** "Does open-weight mean open-source, or local mean automatically secure?" **No to both.** Examine the license and actual controls.
+
+### Hook D — Truck vs Scooter: LLM, SLM and Multimodal
+
+**Picture it:** A moving team chooses a **truck** or **scooter** based on the load and route, not the biggest vehicle available. If the task includes images, the driver also needs working **eyes**, not just a larger engine.
+
+**Say the action phrase:** **"Check the Load → Match Capabilities → Test the Route."**
+
+| Action | Precise mapping |
+|---|---|
+| **Check the Load** | Define task, volume, privacy and expected quality |
+| **Match Capabilities** | Evaluate LLM/SLM size and supported text/image/audio modalities |
+| **Test the Route** | Compare task accuracy, latency, memory, price and failure cases |
+
+**Trace:** For one small synthetic text-classification task, a suitably evaluated SLM might be enough. For an image-plus-text incident screenshot, verify that the model actually supports image input, regardless of size.
+
+**Interview answer:** "Model size is a resource trade-off, not a guarantee of task accuracy; multimodal ability depends on documented capabilities."
+
+**Trap:** "Does every large language model see screenshots?" **No.**
+
+**Memory lock — without reading:** Describe **Break → Fit → Relate → Check**, **Encode → Find → Read → Verify**, **Provider Runs / We Run**, and **Check Load → Match → Test**. Apply each to a new, synthetic incident assistant and defend one trap in a 30-second answer.
 
 ## 6. Visualization
+
+**Interview Master Plan mind map** — the recall routes are related, not one mandatory sequential pipeline.
+
+~~~text
+LLM interaction
+├─ Break into Pieces — tokenizer
+├─ Fit the Board — context window
+├─ Relate the Pieces — attention / transformer
+└─ Check the Answer — application validation
+
+Optional knowledge retrieval
+└─ Meaning GPS — Encode → Find → Read → Verify
+
+Choose a model/runtime
+├─ Restaurant vs Home Kitchen — hosted vs local
+└─ Truck vs Scooter — LLM vs SLM + multimodal capabilities
+~~~
+
 
 ~~~mermaid
 flowchart LR
@@ -247,11 +335,14 @@ For a synthetic support assistant, compare **hosted vs local** and **LLM vs SLM*
 
 ## 16. Quick Revision
 
-**Spotlight → Lego → Whiteboard → Meaning GPS** = transformer attention → tokens → context window → embedding similarity.
+**Token/context/attention:** **Break into Pieces → Fit the Board → Relate the Pieces → Check the Answer**.  
+**Embeddings:** **Encode Meaning → Find Neighbors → Read Sources → Verify Facts**.  
+**Hosted/local:** **Provider Runs → Verify Terms; We Run → Maintain and Secure**.  
+**Model sizing:** **Check the Load → Match Capabilities → Test the Route**.
 
-**Before selecting a model:** quality → privacy → latency → operating cost → reliability → license.
+**Memory-lock drill:** Hide the page; say each action phrase, map each verb to the correct technical action, explain one sample Linux incident and answer one interview trap. **A catchy label without a worked recall is incomplete.**
 
-**One-line takeaway:** Understand the model's limits and benchmark its actual task before trusting or deploying it.
+**One-line takeaway:** Choose and verify the model using the application's actual task, data and constraints.
 
 ## 17. Assignment
 
