@@ -42,6 +42,8 @@ For every important recall concept or coherent concept-group, provide all of:
 7. **Interview recall + trap** — a short explanation the learner can speak and one common cross-question or edge case that tests understanding.
 8. **Memory lock** — ask the learner to reproduce the phrase and use it on a new example **without reading**.
 
+**Visual delivery (aligned with Java 9 Overview):** Every memory-hook scene needs a **rendered illustration/image embedded in the topic Markdown** (not merely a text diagram). Pair it with a clear alt description, the action phrase and a correct worked trace. Use an SVG illustration for explainable diagrams; use relevant photography when it improves the real-life analogy. Keep a separate architecture/mind-map visualization and optional step-by-step animation **only where useful**. GitHub Markdown displays static images; do not promise playable controls unless an actual separately runnable artifact exists. Store image files under `assets/module-XX/`, use stable relative paths, and verify every link against the committed GitHub files.
+
 **Quality gates:** a label alone ("Umbrella", "Lego", "Gym") is **not sufficient**; an arrow-separated list of nouns is not an action-based hook. Keep the number of hooks minimal, reuse the same canonical phrase in Visualization/Quick Revision/Interview/Assignment, and do not replace the real technical definition with an inaccurate metaphor. **No additional top-level lesson headings**; preserve the user-supplied DSA section order and KISS/DRY/YAGNI/SOLID.
 
 ## Teaching quality rules
