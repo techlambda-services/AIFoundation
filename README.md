@@ -14,6 +14,8 @@ Read both files in order: **they follow the uploaded DSA reference structure exa
 | 01 | [AI Basics & How Machines Learn](content/module-01/01_AI_Basics_and_How_Machines_Learn.md) | DevOps use-case map, training/inference exercise |
 | 02 | [LLM Building Blocks & Model Choices](content/module-01/02_LLM_Building_Blocks_and_Model_Choices.md) | Context experiment, model comparison, model-choice note |
 
+**Illustrated memory hooks:** Both topics now include seven committed SVG illustrations, displayed directly within each Memory Hook section. These pair familiar imagery with action phrases, mind maps and interview recall exercises. [Browse the visual assets](assets/module-01/). GitHub Markdown displays the images as static illustrations.
+
 **Quick memory:** **Umbrella → Apprentice → Layer Cake → Creative Studio** (AI/ML/DL/GenAI); **Gym → Match Day** (training/inference); **Spotlight → Lego → Whiteboard → Meaning GPS** (LLM concepts).
 
 ## What follows in the 10-hour foundation
