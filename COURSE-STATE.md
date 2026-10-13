@@ -1,6 +1,6 @@
 # COURSE-STATE — AI Foundation + Kanchan AI Infrastructure & Agentic Systems
 
-Updated: 2026-10-12
+Updated: 2026-10-13
 Repository: https://github.com/techlambda-services/AIFoundation
 Current phase: **M01 SIMPLIFIED INTO TWO 1-HOUR LESSONS / LEARNER EVIDENCE PENDING**
 Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
@@ -20,6 +20,7 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 | Source TOC 30h correction | BLOCKED | Confirm replacement durations in Word source |
 | Session-by-session content files | IN_PROGRESS | M01 authored in `content/module-01/`; M02 onward pending |
 | M01 manuscript / TOC alignment | VALIDATED | Two 60-minute files, core lab themes, short checks and evidence; content review only |
+| M01 Hour 1 content quality audit | VALIDATED | Commit `6290b16`: five short sections, source-hour coverage, 18min explanation/42min practice, one synthetic case, three activities, expected answers, 10-point rubric and completion gate; checked in GitHub. **Learner acceptance pending.** |
 | M01 offline context example | VALIDATED | Python run: 13 words; budget 6 retains 6/drops 7; budget 20 retains 13/drops 0 |
 | M01 learner lab evidence | NOT_STARTED | Instructor/learner to execute activities; capture expected vs actual evidence and teach-back |
 | Starter lab environment | NOT_STARTED | Python, virtualenv, FastAPI, model/mock adapter |
@@ -31,7 +32,7 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 | CI + reproducibility | NOT_STARTED | Add after runnable code exists |
 
 ## Next executable step
-Run M01 exercises in Kanchan's environment, collect real learner evidence and record verified results. Proceed to M02 lesson authoring; do not claim completion of live labs before evidence review.
+Hour 1 authoring review passed; conduct an actual 60-minute learner run, collect Lab A–C outputs and the 10-point scored rubric. Continue with Hour 2 learner review and then M02 authoring. Do not claim learner sign-off or live execution without evidence.
 
 ## Governance
 GitHub stores code, curriculum markdown, lab steps, diagrams and checkpoints. Original approved corporate Word TOC remains separately maintained until its discrepancies are explicitly resolved.
