@@ -119,7 +119,7 @@ Then answer two cross-questions: **Does a normal prompt retrain weights?** (No.)
 
 ## 5. Validate and finish — no additional class time
 
-**One submission:** \`01_Hour1_Evidence.md\` (or one page) with Lab A table, Lab B lifecycle/T-I answers, Lab C notes, and **one mistake corrected**.
+**One submission:** `01_Hour1_Evidence.md` (or one page) with Lab A table, Lab B lifecycle/T-I answers, Lab C notes, and **one mistake corrected**.
 
 **10-point assessment:**
 
