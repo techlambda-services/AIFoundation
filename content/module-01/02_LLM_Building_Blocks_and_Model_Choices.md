@@ -1,20 +1,22 @@
 # 02 — LLM Building Blocks & Model Choices
-**Kanchan · Module 01 · Hour 2 of 2 (60 min)**  
-**18 min concepts + 42 min practice · Browser + optional Python**
+**Kanchan · Module 01 · Topic 02 of 02 (not timeboxed)**  
+**Concepts + practical application · Browser + optional Python**
 
 > **Remember:** Understand what goes in, what the model can see, and why its answer still needs checking.
 
-## 1. The problem and learning goal — 4 min (concepts)
+## 1. The problem and learning goal
 
 A team wants an assistant to explain Linux errors. It must choose a model, manage long input and avoid unsafe recommendations.
 
 After this hour, you should be able to explain **transformers, tokens, context windows, embeddings and multimodal AI**; compare **hosted/local/open-weight** approaches and **LLMs/SLMs**; and score model responses against clear criteria.
 
-**Prerequisites:** Hour 1. Two accessible chat models are **optional**. Free offline examples are provided.
+**Learning rule:** Follow concepts and practice by understanding, not by a fixed one-hour limit.
+
+**Prerequisites:** Module 01 Topic 01. Two accessible chat models are **optional**. Free offline examples are provided.
 
 **5W+H:** Model building blocks (what) help technical teams (who) choose safer AI support assistants (why/where), before integration (when), using measured context and model comparisons (how).
 
-## 2. Memory Hooks — 6 min (concepts)
+## 2. Memory Hooks
 
 | Concept | Memory Hook | Plain-English meaning |
 |---|---|---|
@@ -27,7 +29,7 @@ After this hour, you should be able to explain **transformers, tokens, context w
 
 These are learning analogies, not literal descriptions of model internals. An open-weight model is not automatically open-source or unrestricted.
 
-## 3. Follow one request — 8 min (concepts)
+## 3. Follow one request
 
 ~~~mermaid
 flowchart LR
@@ -52,9 +54,9 @@ flowchart LR
 
 **Decision rule:** Start with task + data sensitivity + evidence of quality; then choose the simplest model/runtime that meets the need.
 
-## 4. Do it yourself — 42 min (practice)
+## 4. Do it yourself
 
-### Lab A — What fits on the Whiteboard? (18 min)
+### Lab A — What fits on the Whiteboard?
 This is a **toy word-budget experiment**, **not** a measurement of real model tokens.
 
 If Python is available, run this short program (otherwise split the sentence into words by hand):
@@ -75,7 +77,7 @@ for limit in (6, 20):
 
 **Optional real-token check:** Use a tokenizer compatible with one named model and record its measured token count. Do not treat this toy word count as real tokens.
 
-### Lab B — Compare two model answers (18 min)
+### Lab B — Compare two model answers
 Use the **same synthetic prompt** in two models, if available:
 
 > A Linux server is at 95% disk usage. State what is known, suggest three read-only diagnostic checks, avoid destructive commands, and say what evidence is missing. Keep it under 120 words.
@@ -98,7 +100,7 @@ For each answer, rate **0 = not satisfied, 1 = satisfied**:
 
 **Safety:** No confidential logs or live credentials; verify commands before using them.
 
-### Lab C — Choose the deployment approach (6 min)
+### Lab C — Choose the deployment approach
 A small internal incident assistant has sensitive input and modest hardware. Write **two sentences**:
 1. Hosted or local model, and **why** (privacy, hardware, effort, licensing).
 2. LLM or SLM, and **what would you measure** before deciding?
@@ -114,7 +116,7 @@ Answer aloud:
 4. Can every multimodal model process every modality? **No.**
 5. Is open-weight identical to unrestricted open-source? **No.**
 
-Submit **02_Hour2_Evidence.md** (or one page):
+Submit **02_LLM_Concepts_Evidence.md** (or one page):
 - Word-budget outputs for 6 and 20, with the limitation clearly stated.
 - Two model responses or *clearly marked illustrative* comparison, plus the four scores.
 - Your two-sentence model-selection decision and the five answers above.
@@ -123,6 +125,6 @@ Submit **02_Hour2_Evidence.md** (or one page):
 
 **Troubleshooting:** Python unavailable → manual word count. Models unavailable → clearly label example responses illustrative. Answers conflict → verify claims independently, never guess.
 
-**Done when:** you explain the four-part memory chain, demonstrate the word-budget limitation, score both outputs fairly and defend one model choice. Trainer review and **actual learner evidence** are required before marking this hour passed.
+**Done when:** you explain the four-part memory chain, demonstrate the word-budget limitation, score both outputs fairly and defend one model choice. Trainer review and **actual learner evidence** are required before marking this topic passed.
 
 **Next:** Module 02 — LLMs, Prompt Engineering & Responsible AI.
