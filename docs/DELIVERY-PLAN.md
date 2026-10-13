@@ -1,6 +1,6 @@
 # Suggested delivery plan — 15 sessions × 2 hours
 
-**Status:** PROPOSED, subject to TOC correction approval and dry-run of labs.
+**Status:** PROPOSED, subject to TOC correction approval and dry-run of labs. The session schedule is for planning **only**; module/topic content is not capped by scheduled hours.
 
 | Session | Time allocation | Planned focus |
 |---|---|---|
@@ -23,7 +23,7 @@
 **Total:** 30h = 10h common foundation + 20h specialization.
 
 ## Contact-hour target
-For each 120-minute session: target **36 minutes of guided theory** and **84 minutes of demonstrations, learner exercises, validation and review**. Adjust at submodule level when modules span sessions while preserving overall 30/70 delivery.
+In scheduled delivery, target a **30% theory / 70% application** blend. The schedule does not restrict content depth, reference explanations, practice volume or remediation. Finish by verified objectives and evidence, not an arbitrary fixed-length file.
 
 ## Progressive capstone milestones
 1. S03: Python AI API with environment-variable configuration; verify success/error paths.
