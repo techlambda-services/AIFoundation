@@ -2,7 +2,7 @@
 
 Updated: 2026-10-13
 Repository: https://github.com/techlambda-services/AIFoundation
-Current phase: **M01 ORGANIZED BY TOPIC, NO HOURLY CONTENT CAP / LEARNER EVIDENCE PENDING**
+Current phase: **M01 REBUILT TO MATCH UPLOADED DSA TEMPLATE / LEARNER EVIDENCE PENDING**
 Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 
 ## Decisions and open gates
@@ -19,9 +19,9 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 | Repo baseline and governance docs | VALIDATED | README, alignment, plan, standard, architecture, labs placeholder and ignore rules are committed and verified in main |
 | Source TOC 30h correction | BLOCKED | Confirm replacement durations in Word source |
 | Session-by-session content files | IN_PROGRESS | M01 authored in `content/module-01/`; M02 onward pending |
-| M01 manuscript / TOC alignment | VALIDATED | Two topic-based files cover M01 concepts, core lab themes and evidence; content review only |
-| M01 Topic 01 content quality audit | VALIDATED | One synthetic DevOps case, three applied activities, expected answers, 10-point rubric and safety gate; **learner acceptance pending** |
-| M01 offline context example | VALIDATED | Python run: 13 words; budget 6 retains 6/drops 7; budget 20 retains 13/drops 0 |
+| M01 manuscript / TOC alignment | VALIDATED | Both topic files follow the attached DSA reference: 17 original numbered sections, Memory Hook as section 5, Completion Check, Next Topic; AI-specific Python examples and complexity trade-offs; content review only |
+| M01 Topic 01 content quality audit | VALIDATED | Reference structure, synthetic DevOps scenario, working Python threshold example, negative tests, assignments, rubric and safety gate; **learner acceptance pending** |
+| M01 Topic 02 context example | VALIDATED | Python checks: 13 words; budget 6 retains 6/drops 7; budget 20 retains 13/drops 0. Full lesson includes negative-case code and illustrative model comparison; learner run pending |
 | M01 learner lab evidence | NOT_STARTED | Instructor/learner to execute activities; capture expected vs actual evidence and teach-back |
 | Starter lab environment | NOT_STARTED | Python, virtualenv, FastAPI, model/mock adapter |
 | Foundation capstone | NOT_STARTED | S03–05 |
@@ -32,7 +32,7 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 | CI + reproducibility | NOT_STARTED | Add after runnable code exists |
 
 ## Next executable step
-Review both M01 topics by learning outcomes rather than elapsed time, collect practical lab evidence and scored assessments, then proceed to M02. Do not claim learner sign-off or live execution without evidence.
+Both authored M01 topics match the source reference section order; collect actual learner lab evidence and scored assessments before signing off delivery, then proceed to M02. Do not claim learner sign-off or live execution without evidence.
 
 ## Governance
 GitHub stores code, curriculum markdown, lab steps, diagrams and checkpoints. Original approved corporate Word TOC remains separately maintained until its discrepancies are explicitly resolved.
