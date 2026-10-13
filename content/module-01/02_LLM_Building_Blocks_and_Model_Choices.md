@@ -59,6 +59,8 @@ These are memory aids, not literal mathematical definitions of model internals.
 
 ## 5. Memory Hook
 
+**Interactive visual walkthrough:** [Open the offline Module 01 Memory Hook Explorer](../../visuals/module-01/memory-hook-explorer.html) after downloading/cloning this repository; open the HTML file locally to explore tokens, context, embeddings, hosting and model selection step-by-step. SVG illustrations below work directly in GitHub Markdown.
+
 **Interview Master Plan rule:** **Real-life picture → action phrase → precise technical mapping → short trace → interview trap → memory lock.** This is more than a list of memorable labels.
 
 ### Hook A — Library Desk: Token, Context and Attention
