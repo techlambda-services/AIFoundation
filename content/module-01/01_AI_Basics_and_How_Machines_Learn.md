@@ -1,119 +1,141 @@
 # 01 — AI Basics & How Machines Learn
-**Kanchan · Module 01 · Hour 1 of 2 (60 min)**  
-**18 min concepts + 42 min practice · No paid tools required**
 
-> **Remember:** Choose the problem first, then decide whether rules, learning, or generation actually help.
+**Kanchan · AI Foundation · Module 01 · Hour 1 of 2 (60 minutes)**  
+**18 minutes understanding + 42 minutes hands-on · Free, offline-first**
 
-## 1. The problem and learning goal — 4 min (concepts)
+> **Memory sentence:** **Choose the problem first. Use rules when rules are enough.**
 
-A DevOps team has alerts, error logs, tickets and maintenance messages. Should it use a rule, machine learning, or Generative AI?
+## 1. Problem, objectives and readiness — 4 min | Understand
 
-After this hour, you should be able to:
-- Explain **AI, ML, Deep Learning and Generative AI** in plain language.
-- Distinguish **supervised, unsupervised and reinforcement learning**.
-- Explain **dataset, model, weights, foundation model, training and inference**.
-- Choose a suitable technique for five Linux/DevOps tasks.
+**Real scenario:** A Linux/DevOps team faces high disk usage, repeated error logs, support tickets and requests to draft incident updates. A colleague says, “Let's use AI for all of it.” Is that a sensible design?
 
-**Prerequisites:** Basic Linux/DevOps familiarity, browser or paper, text editor. Use **synthetic** data, never real customer logs.
+**Outcome:** At the end of this hour, you can:
+1. Explain **AI, Machine Learning (ML), Deep Learning (DL) and Generative AI (GenAI)** without mixing them up.
+2. Identify **supervised, unsupervised and reinforcement learning**.
+3. Explain **dataset, labels, model, parameters/weights, training, inference and foundation models**.
+4. Match common DevOps tasks to an appropriate approach—and state when **human approval** is needed.
 
-**5W+H:** AI techniques (what) for safe incident handling (why), chosen by DevOps teams (who/where), before automation (when), through task classification and verification (how).
+**5W+H:** What—AI methods; Why—solve the *right* problem; Who—engineers/trainers; Where—DevOps incident workflows; When—before selecting a model; How—classify, test and review.
 
-## 2. One analogy + Memory Hooks — 6 min (concepts)
+**Prerequisites / check:** Basic technical awareness, paper or text editor. No Python, paid API, GPU, account or production access required. Use only **synthetic** incident examples.
 
-Think of a company with different teams:
+## 2. Real-life analogy and Memory Hooks — 6 min | Remember
 
-| Term | Memory Hook | Remember it this way |
+Imagine an organization where people have different responsibilities. It is a memory aid, **not** a literal hierarchy of job titles.
+
+| Concept | Recall tag | What it means |
 |---|---|---|
-| AI | ☂️ **Umbrella** | The broad field, including rules, search and learning |
-| ML | 🎓 **Apprentice** | Learns patterns from examples |
-| Deep Learning | 🎂 **Layer Cake** | ML using neural networks with many layers |
-| GenAI | 🎨 **Creative Studio** | Produces new text, code, images, etc. |
-| Training | 🏋️ **Gym** | Learns/adjusts model weights |
-| Inference | 🏟️ **Match Day** | Uses learned weights on new input |
+| **AI** | ☂️ **Umbrella** | Broad field of intelligent-computing approaches; includes rules and learning |
+| **ML** | 🎓 **Apprentice** | Learns patterns from examples |
+| **DL** | 🎂 **Layer Cake** | A family of ML methods using multi-layer neural networks |
+| **GenAI** | 🎨 **Creative Studio** | Generates text, images, code or other content |
+| **Training** | 🏋️ **Gym** | Adjusts learned model parameters from data |
+| **Inference** | 🏟️ **Match Day** | Applies an already trained model to new input |
 
-**Say it aloud:** **Umbrella → Apprentice → Layer Cake → Creative Studio**.  
-**Say it aloud:** **Gym → Match Day**.
+**Recall twice, without reading:**  
+**Umbrella → Apprentice → Layer Cake → Creative Studio**  
+**Gym → Match Day**
 
-*Technical accuracy:* AI is broader than ML; Deep Learning is part of ML. GenAI describes systems that generate content; modern LLM-based GenAI commonly uses Deep Learning, but the categories are not perfectly nested.
+**Important distinction:** AI is broader than ML; DL is a form of ML. GenAI is an output-focused category, not simply “another DL layer.” Modern LLM-based GenAI often uses DL.
 
-## 3. Understand the essentials — 8 min (concepts)
+## 3. Understand once; apply many times — 8 min | Explain
 
-| Situation | Best basic explanation |
-|---|---|
-| CPU > 90% triggers a fixed alert | **Rule**; the system need not learn |
-| Ticket + correct priority are provided as training examples | **Supervised ML** |
-| Similar logs are grouped without category labels | **Unsupervised ML** |
-| A simulated controller is rewarded for good decisions | **Reinforcement learning** |
-| A model drafts a human-readable maintenance notice | **Generative AI** |
+**Which technique fits?**
 
-**Training vs inference:** During training, a learning algorithm adjusts the model's **weights** using a **dataset**. During inference, the trained model predicts or generates for a new request. Sending an ordinary prompt does **not** retrain its weights.
+| Approach | What is available? | DevOps example |
+|---|---|---|
+| **Fixed rule (no learning needed)** | A known condition | Alert when disk usage exceeds 90% |
+| **Supervised ML** | Examples **with correct labels** | Predict ticket priority from previously labeled tickets |
+| **Unsupervised ML** | Data **without target labels** | Cluster similar error messages |
+| **Reinforcement learning** | Actions with **reward feedback** | Learn a policy in a *simulated* resource-allocation environment |
+| **GenAI** | A request for generated content | Draft a maintenance note; engineer checks it |
 
-**Model basics:** A dataset contains examples; learned numerical weights define a trained model. **Foundation models:** A broadly pretrained model can be adapted through prompts, tools, retrieval or additional training.
-
-**Depth progression:** Beginner: identify the technique. Engineer: inspect datasets, labels and weights. Advanced awareness: test reliability and the reward/validation design before deployment.
+**Model vocabulary, using one example:** A **dataset** is a collection of incidents. A **feature** is an input such as disk utilization; a **label** might be “high severity.” An ML **model** uses learned numerical **parameters (weights)**, adjusted during **training**. At **inference**, the model uses its learned parameters to make a prediction about a new incident. A **foundation model** has been broadly pretrained and can support multiple tasks through suitable interfaces and adaptation.
 
 ~~~mermaid
 flowchart LR
-    A[AI Umbrella] --> B[Rules and Search]
-    A --> C[Machine Learning]
-    C --> D[Deep Learning]
-    D --> E[Modern LLM-based GenAI]
-    F[Training examples] --> G[Training: Gym]
-    G --> H[Learned Model]
-    H --> I[Inference: Match Day]
-    J[New Request] --> I
+    A[Labeled sample incidents] --> B[Training: Gym]
+    B --> C[Model with learned weights]
+    C --> D[Inference: Match Day]
+    E[New incident] --> D
+    D --> F[Prediction to check]
 ~~~
 
-## 4. Do it yourself — 42 min (practice)
+**Progressive depth:** **Beginner:** identify rule versus learning versus generation. **Engineering:** distinguish training data, labels and unseen inputs. **Advanced awareness:** evaluate on separate held-out cases; avoid data leakage, unsupported predictions and unaudited operational actions.
 
-### Lab A — Map five DevOps tasks (20 min)
-For each task, decide **rule / supervised ML / unsupervised ML / GenAI / approval-controlled operation**, and write why.
+**Watch out:** A normal prompt to an existing LLM is **not** weight training. A fluent generated answer is not proof that the answer is correct.
 
-| Task | Your choice | Why + one risk |
+## 4. Practice in one continuous DevOps case — 42 min | Do and check
+
+### Lab A — Choose the tool, not the buzzword (15 min)
+
+**Task:** Complete **Approach + Why + Risk/approval** for all five scenarios. Reuse the five approaches from Section 3; more than one tool may be involved, but choose the simplest suitable starting point.
+
+| Scenario | Approach | Why? What must be checked? |
 |---|---|---|
-| Send alert when disk usage exceeds 90% | | |
-| Group unknown error messages | | |
-| Classify tickets with labeled past examples | | |
-| Draft a maintenance notice | | |
-| Restart a production server | | |
+| A1. Trigger alert at 95% disk usage | | |
+| A2. Discover groups of similar, unlabeled log entries | | |
+| A3. Categorize tickets using historical labeled examples | | |
+| A4. Draft a clear incident update | | |
+| A5. Restart a critical production service | | |
 
-**Self-check (after answering):** rule; unsupervised ML; supervised ML; optional GenAI with human review; authorized automation with explicit approval. **A generative model should not independently restart production.**
+**Self-check after attempting:** A1 **rule** (known threshold); A2 **unsupervised ML** (no target labels); A3 **supervised ML** (labels); A4 **GenAI optional**, with factual review; A5 **authorized operational workflow**, with permissions/approval—not an unconstrained LLM action. **No real operations are performed.**
 
-### Lab B — Gym or Match Day? (12 min)
-Mark each statement **Training** or **Inference**.
+**Expected evidence:** One completed five-row table with a rationale and a safety condition in each row.
 
-1. Update weights using thousands of labeled tickets.
-2. Predict severity for today's new ticket.
-3. Fine-tune a model on approved examples.
-4. Ask a deployed model to explain an alert.
+### Lab B — Follow a ticket from Gym to Match Day (17 min)
 
-**Check:** 1 Training; 2 Inference; 3 Training; 4 Inference.
+These are **made-up data** for understanding; **no ML model is trained or run here**.
 
-**Discuss:** Why is a prompt usually inference, not training? Answer: the deployed model uses existing weights; normal prompting does not optimize them.
+| Ticket | Feature: disk/CPU utilization | Label: severity | Role |
+|---|---|---|---|
+| T1 | Disk 95% | High | Labeled example |
+| T2 | Disk 30% | Low | Labeled example |
+| T3 | CPU 96% | High | Labeled example |
+| T4 | CPU 25% | Low | Labeled example |
+| T5 | Disk 92% | Unknown | New input |
 
-### Lab C — Teach-back (10 min)
-Without reading the tables:
-1. Explain the **Umbrella → Apprentice → Layer Cake → Creative Studio** chain.
-2. Explain **Gym → Match Day** using one Linux incident.
-3. Give one reason **not** to use GenAI for a simple alert.
-4. Draw **data → training → model → inference → output** on paper.
+**Do these four tasks:**
+1. Circle the **training examples**, underline their **labels**, and mark **T5** as new input.
+2. Write the lifecycle in your own words: **labeled examples → training → learned model → new input → inference → prediction → verification**.
+3. Mark **Training (T)** or **Inference (I)**: (a) changing model weights using T1–T4; (b) predicting a category for T5 using a trained model; (c) fine-tuning using approved examples; (d) asking a deployed LLM to summarize T5.
+4. Imagine a model predicted “High” for T5. Can you claim **measured accuracy** from this worksheet? Explain why, and name one verification step.
 
-**Expected:** a correct explanation plus a small diagram. If a step is unclear, revisit only the relevant memory hook.
+**Self-check:** T1–T4 are *illustrative training data*; T5 is unseen input. (a) T, (b) I, (c) T, (d) I. The “High” prediction is **hypothetical**: compare predictions with independently labeled, held-out examples before making any accuracy claim. No weights are updated by this paper exercise.
 
-## 5. Submit one piece of evidence
+**Expected evidence:** An annotated table, lifecycle and four T/I answers, plus the limitation of the hypothetical prediction.
 
-Create **01_Hour1_Evidence.md** (or one handwritten page) containing:
-- Your five-row task map with rationale and risks.
-- Four Gym/Match Day answers.
-- Your simple model lifecycle diagram.
-- One mistake you corrected.
+### Lab C — Explain it like a corporate trainer (10 min)
 
-**Assessment (10 points):** Five correct task choices with rationale (5); four training/inference answers (2); two memory chains explained (2); safe human approval (1). **Pass: 8/10 or higher**, with production safety reasoning correct.
+Using the same incident case, deliver a **two-minute teach-back** without looking at Section 2:
 
-**Troubleshooting:** No API/model access is needed. If unsure whether a task needs ML, ask whether labels, unknown clusters or a reward signal exist. Use a fixed rule when learning adds no value.
+- Explain **Umbrella → Apprentice → Layer Cake → Creative Studio**.
+- Explain **Gym → Match Day** using T1–T5.
+- Defend **one place you would not use GenAI**.
 
-**Done when:** all five decisions are reasoned, all four training/inference cases are correct, and you can explain the two memory chains unaided. The trainer should review your results; reading this page alone is not completion.
+Then answer two cross-questions: **Does a normal prompt retrain weights?** (No.) **Should a model-generated suggestion restart production without authorization?** (No.)
 
-**Avoid these mistakes:** AI ≠ only GenAI; DL ≠ all of AI; ordinary prompts ≠ model retraining; GenAI output ≠ permission to change infrastructure.
+**Expected evidence:** Five lines of teach-back notes; a colleague or trainer can ask the two cross-questions. Practicing aloud alone is acceptable as preparation but is **not** independently observed validation.
+
+## 5. Validate and finish — no additional class time
+
+**One submission:** \`01_Hour1_Evidence.md\` (or one page) with Lab A table, Lab B lifecycle/T-I answers, Lab C notes, and **one mistake corrected**.
+
+**10-point assessment:**
+
+| Check | Points | Pass evidence |
+|---|---:|---|
+| Lab A: five choices with sensible reasons and controls | 5 | 1 point per correct, reasoned scenario |
+| Lab B: examples/new input + training/inference | 3 | 1 for data roles, 1 for four T/I answers, 1 for rejecting unverified accuracy |
+| Lab C: memory chains and safe decisions | 2 | 1 for explaining concepts; 1 for approval boundary |
+| **Total** | **10** | **Pass ≥ 8/10 AND A5 safety control correct** |
+
+**Troubleshooting:** Confused by “ML” vs “GenAI”? Ask whether you need to *learn from labeled examples* or *generate content*. Not sure about “training”? Ask whether weights are being updated. Can't access any tools? All labs work with paper and synthetic data.
+
+**Common mistakes:** Treating GenAI as all AI; assuming all AI needs learned weights; equating a prompt with model training; treating one hypothetical prediction as proven accuracy; giving an LLM permission to restart a server.
+
+**Done when:** The learner submits evidence, explains the two recall chains, achieves the rubric threshold and correctly handles production authorization. **Lesson authoring is not proof of learner completion.**
+
+**Optional reference:** [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course)
 
 **Next:** [Hour 2 — LLM Building Blocks & Model Choices](02_LLM_Building_Blocks_and_Model_Choices.md).
