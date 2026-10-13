@@ -7,7 +7,7 @@ Practical-first, beginner-friendly AI foundation for Kanchan and technical profe
 
 ## Start here: Module 01 — AI Foundations (2 hours)
 
-Read both files in order: **they are topic-based learning units, not one-hour lesson limits**. The TOC's two-hour Module 01 allocation is scheduling guidance only.
+Read both files in order: **they follow the uploaded DSA reference structure exactly (17 original sections + Memory Hook + Completion Check + Next Topic), adapted to AI**. They are topic-based learning units, not one-hour lesson limits. The TOC's two-hour Module 01 allocation is scheduling guidance only.
 
 | Topic | Material | Evidence |
 |---|---|---|
@@ -25,7 +25,7 @@ Read both files in order: **they are topic-based learning units, not one-hour le
 | 04 | Embeddings, Vector Search & RAG | 2h |
 | 05 | AI Application Architecture & Foundation Capstone | 2h |
 
-**Method:** Understand → memory hook → practice → verify → submit **one concise evidence sheet per topic**. Continue until the learning outcomes are met.
+**Method:** Follow the [reference-aligned content template](docs/TRAINING-STANDARD.md): problem → objectives → 5W+H → analogy → memory hook → visualization → beginner/engineering explanations → real use → Python example → complexity → exercises → best practices → mistakes → interviews → revision → assignments → reading → completion → next topic. Each topic has one evidence sheet; progress by understanding, not a clock.
 
 **Prerequisites:** Basic programming/Linux/DevOps knowledge; browser and text editor. Optional Python and two accessible chat models. The Module 01 exercises can be completed without paid APIs.
 
