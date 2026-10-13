@@ -63,6 +63,8 @@ These are memory aids, not literal mathematical definitions of model internals.
 
 ### Hook A — Library Desk: Token, Context and Attention
 
+![Illustrated Library Desk showing token pieces, a bounded context whiteboard, attention spotlight and answer checks](../../assets/module-01/04-tokens-context-attention.svg)
+
 **Picture it:** An engineer at a library desk breaks a document into **Lego pieces**, arranges only what fits on a **whiteboard**, and shines a **spotlight** on relevant relationships.
 
 **Say the action phrase:** **"Break into Pieces → Fit the Board → Relate the Pieces → Check the Answer."**
@@ -81,6 +83,8 @@ These are memory aids, not literal mathematical definitions of model internals.
 **Trap:** "Is one whitespace word always one token, or is the context window permanent memory?" **No to both.** Our Python example counts words **only**.
 
 ### Hook B — Meaning GPS: Embeddings and Retrieval
+
+![Illustrated Meaning GPS showing encode meaning, find neighbors, read sources and verify facts](../../assets/module-01/05-meaning-gps.svg)
 
 **Picture it:** You search an enormous library with **Meaning GPS** instead of matching exact titles. Nearby shelf locations suggest related runbooks, but you still open and verify the document.
 
@@ -101,6 +105,8 @@ These are memory aids, not literal mathematical definitions of model internals.
 
 ### Hook C — Restaurant vs Home Kitchen: Hosted vs Local
 
+![Illustrated model hosting comparison: provider runs versus team-run local hosting and security](../../assets/module-01/06-hosted-local.svg)
+
 **Picture it:** At a **restaurant**, someone else cooks and manages the kitchen; in a **home kitchen**, you control ingredients and equipment but do all the upkeep.
 
 **Say the action phrase:** **"Provider Runs → Verify Terms; We Run → Maintain and Secure."**
@@ -119,6 +125,8 @@ These are memory aids, not literal mathematical definitions of model internals.
 **Trap:** "Does open-weight mean open-source, or local mean automatically secure?" **No to both.** Examine the license and actual controls.
 
 ### Hook D — Truck vs Scooter: LLM, SLM and Multimodal
+
+![Illustrated Truck vs Scooter showing workload fit, model capabilities and task-level evaluation](../../assets/module-01/07-llm-slm.svg)
 
 **Picture it:** A moving team chooses a **truck** or **scooter** based on the load and route, not the biggest vehicle available. If the task includes images, the driver also needs working **eyes**, not just a larger engine.
 
