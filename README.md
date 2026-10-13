@@ -2,17 +2,17 @@
 
 Practical-first, beginner-friendly AI foundation for Kanchan and technical professionals.
 
-**Foundation:** 10 hours · 5 modules · 2 hours/module · **30% explanation / 70% practice**.  
+**Foundation:** The TOC schedules 10 training hours across five modules, with **30% explanation / 70% practice** as a delivery goal. Learning content is **not limited by hours**.  
 **Complete program:** Foundation (10h) + AI Infrastructure & Agentic Systems specialization (20h planned). See [course alignment](docs/COURSE-ALIGNMENT.md); the original Word TOC totals 32h by module and its proposed 30h correction is still awaiting approval.
 
 ## Start here: Module 01 — AI Foundations (2 hours)
 
-Read in order; **each file is one focused 60-minute lesson**.
+Read both files in order: **they are topic-based learning units, not one-hour lesson limits**. The TOC's two-hour Module 01 allocation is scheduling guidance only.
 
-| Hour | Lesson | Output |
+| Topic | Material | Evidence |
 |---|---|---|
-| 1 | [AI Basics & How Machines Learn](content/module-01/01_AI_Basics_and_How_Machines_Learn.md) | DevOps use-case map, training/inference exercise |
-| 2 | [LLM Building Blocks & Model Choices](content/module-01/02_LLM_Building_Blocks_and_Model_Choices.md) | Context experiment, model comparison, model-choice note |
+| 01 | [AI Basics & How Machines Learn](content/module-01/01_AI_Basics_and_How_Machines_Learn.md) | DevOps use-case map, training/inference exercise |
+| 02 | [LLM Building Blocks & Model Choices](content/module-01/02_LLM_Building_Blocks_and_Model_Choices.md) | Context experiment, model comparison, model-choice note |
 
 **Quick memory:** **Umbrella → Apprentice → Layer Cake → Creative Studio** (AI/ML/DL/GenAI); **Gym → Match Day** (training/inference); **Spotlight → Lego → Whiteboard → Meaning GPS** (LLM concepts).
 
@@ -25,7 +25,7 @@ Read in order; **each file is one focused 60-minute lesson**.
 | 04 | Embeddings, Vector Search & RAG | 2h |
 | 05 | AI Application Architecture & Foundation Capstone | 2h |
 
-**Method:** Understand → remember through a real-life hook → practice → verify → submit **one concise evidence sheet per hour**.
+**Method:** Understand → memory hook → practice → verify → submit **one concise evidence sheet per topic**. Continue until the learning outcomes are met.
 
 **Prerequisites:** Basic programming/Linux/DevOps knowledge; browser and text editor. Optional Python and two accessible chat models. The Module 01 exercises can be completed without paid APIs.
 
