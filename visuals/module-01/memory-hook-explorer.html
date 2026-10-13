@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Module 01 — Memory Hook Visual Explorer · Techlambda</title>
+<style>
+:root{--navy:#102847;--ink:#173455;--muted:#49657e;--orange:#f97316;--blue:#2563eb;--line:#cbd9e8;--paper:#f4f8fd;--white:#fff;--teal:#0f766e}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(140deg,#edf4fe 0%,#fff8f0 100%);font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--ink);min-height:100vh;line-height:1.46}
+a{color:var(--blue)}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+header{background:var(--navy);color:var(--white);padding:24px clamp(18px,4vw,54px);border-bottom:5px solid var(--orange)}
+header h1{font-size:clamp(1.5rem,3vw,2.25rem);margin:0 0 5px}
+header p{margin:0;color:#bfd6ee;font-size:.98rem}
+main{max-width:1320px;margin:auto;padding:24px 20px 54px}
+.intro{margin:0 0 18px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(240px,315px) minmax(0,1fr);gap:20px;align-items:start}
+aside,.viewer{background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:0 12px 35px #12365a10}
+aside{padding:14px}
+aside h2{margin:5px 8px 12px;font-size:1rem;color:var(--navy)}
+#scene-list{display:grid;gap:8px}
+.scene-btn{width:100%;display:flex;flex-direction:column;gap:3px;align-items:flex-start;text-align:left;background:#f4f8fd;border:1px solid transparent;border-radius:12px;padding:12px;cursor:pointer;color:var(--ink)}
+.scene-btn:hover{border-color:#8cb4e5}
+.scene-btn[aria-current="true"]{background:#e7f2ff;border-color:#60a5fa;box-shadow:inset 4px 0 0 var(--blue)}
+.scene-btn .small{font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:#627b91;font-weight:700}
+.scene-btn .strong{font-size:.95rem;font-weight:750}
+.viewer{padding:clamp(15px,2.8vw,28px)}
+.viewer-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;flex-wrap:wrap}
+.eyebrow{color:var(--blue);font-size:.79rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800}
+h2{margin:5px 0 4px;font-size:clamp(1.3rem,2.5vw,1.8rem)}
+.subtitle{margin:0;color:var(--muted)}
+.pill{font-size:.76rem;color:#92400e;background:#ffedd5;border-radius:25px;padding:7px 11px;font-weight:750}
+.figure{margin:19px 0 11px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.figure img{width:100%;height:auto;display:block;aspect-ratio:1200 / 530;object-fit:contain}
+.figure figcaption{border-top:1px solid var(--line);padding:9px 14px;color:var(--muted);font-size:.85rem}
+.memory{font-weight:800;color:var(--navy);font-size:clamp(1rem,2vw,1.18rem);margin:14px 0 20px}
+.steps{display:flex;flex-wrap:wrap;gap:7px;margin:5px 0 18px}
+.step-btn{flex:1 1 110px;min-width:85px;border:1px solid #abc7e7;background:#f4f8fd;color:#25537e;border-radius:11px;padding:11px 9px;cursor:pointer;font-size:.82rem;font-weight:700}
+.step-btn[aria-current="step"]{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.step-btn.visited:not([aria-current="step"]){border-color:#86b9aa;background:#e7f8f2;color:#115e59}
+.stage{border:1px solid #bdd3e9;border-left:6px solid var(--orange);background:linear-gradient(135deg,#f3f8ff,#fffaf5);border-radius:14px;padding:20px;min-height:245px}
+.stage.active{animation:arrive .26s ease-out}
+.stage .stage-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.stage .step-label{color:#56789b;font-size:.84rem;font-weight:800;letter-spacing:.05em}
+.stage h3{font-size:clamp(1.3rem,2.8vw,2rem);color:#133861;margin:8px 0}
+.stage .technical{font-weight:700;color:#164f83;margin:0 0 13px}
+.stage .example{margin:0 0 16px}
+.stage .trap{background:#fff2e9;border-left:4px solid #f97316;border-radius:8px;padding:9px 12px;font-size:.92rem}
+.controls{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:19px}
+.controls button{border:1px solid #b6cadd;border-radius:10px;background:#fff;color:var(--ink);font-weight:750;padding:11px 15px;cursor:pointer}
+.controls button.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.controls button:disabled{cursor:not-allowed;opacity:.48}
+.controls label{margin-left:auto;font-size:.86rem;color:var(--muted)}
+.controls select{border:1px solid #a9c2db;padding:9px;border-radius:9px;background:white}
+.status{margin-top:10px;font-size:.85rem;color:var(--muted)}
+.summary{margin-top:18px;padding:13px;background:#eaf7ef;border:1px solid #8dc5aa;border-radius:12px}
+.summary strong{color:#166534}
+footer{max-width:1320px;margin:0 auto;padding:0 20px 30px;color:var(--muted);font-size:.85rem}
+@keyframes arrive{from{opacity:.45;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:860px){.layout{grid-template-columns:1fr}aside{position:static}#scene-list{grid-template-columns:repeat(auto-fit,minmax(185px,1fr))}.viewer{min-width:0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{header{background:#fff;color:#123}aside,.controls{display:none}.layout{display:block}.stage{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><h1>Techlambda · Memory Hook Visual Explorer</h1><p>Kanchan AI Foundation · Module 01 · Interview-first action recall</p></header>
+<main>
+<p class="intro">Choose a visual story, step through its actions, then explain the technical mapping without reading. The illustrations and walkthrough work offline after cloning/downloading the repository.</p>
+<div class="layout">
+<aside aria-label="Memory hook topics"><h2>Choose a memory story</h2><nav id="scene-list" aria-label="Memory hook scenes"></nav></aside>
+<section class="viewer" aria-labelledby="scene-title">
+ <div class="viewer-head"><div><span class="eyebrow" id="topic-name">Module 01</span><h2 id="scene-title">Loading memory hook...</h2><p class="subtitle" id="scene-subtitle"></p></div><span class="pill">Illustration + stepwise explorer</span></div>
+ <figure class="figure"><img id="scene-image" src="../../assets/module-01/01-ai-family-office.svg" alt="AI Umbrella Office visual memory hook" width="1200" height="530"><figcaption>Illustration shows the recall sequence; each step below explains the engineering meaning.</figcaption></figure>
+ <p class="memory" id="hook" aria-label="Memory hook phrase"></p>
+ <nav class="steps" id="steps" aria-label="Memory hook step selection"></nav>
+ <article id="stage" class="stage" aria-live="polite" aria-atomic="true">
+  <div class="stage-top"><span class="step-label" id="step-index"></span><span class="step-label">ACTION → TECHNICAL MEANING</span></div>
+  <h3 id="step-verb"></h3><p class="technical" id="step-technical"></p><p class="example" id="step-example"></p><p class="trap" id="step-trap"></p>
+ </article>
+ <div class="controls" role="group" aria-label="Memory recall controls">
+  <button id="prev" type="button">← Previous</button>
+  <button id="next" class="primary" type="button">Next →</button>
+  <button id="play" type="button" aria-pressed="false">▶ Play</button>
+  <button id="reset" type="button">↺ Reset</button>
+  <label for="speed">Pace
+   <select id="speed"><option value="6000">Slow</option><option value="4200" selected>Normal</option><option value="2600">Fast</option></select>
+  </label>
+ </div>
+ <p id="status" class="status" role="status" aria-live="polite"></p>
+ <div class="summary"><strong>Memory lock:</strong> Hide the explanation, say the full action sequence from memory, map each action to its technical meaning and answer the interview trap. If one step fails, replay just that step.</div>
+</section>
+</div>
+</main>
+<footer><p><strong>Scope:</strong> This is a self-contained educational visualizer, not an AI execution environment. No network, analytics, paid API or credential is required. It is separate from GitHub Markdown because GitHub does not run JavaScript inside lesson pages.</p><noscript>This visualizer needs local JavaScript for next/previous controls. The seven static SVG images remain available in each Markdown lesson.</noscript></footer>
+<script>
+"use strict";
+const scenes = [{"slug":"ai-family","topic":1,"title":"Umbrella Office","subtitle":"AI → ML → Deep Learning → Generative AI","image":"01-ai-family-office.svg","hook":"Cover All → Learn Examples → Stack Layers → Create Content","steps":[{"verb":"Cover All","tech":"AI — broad intelligent-computing discipline","example":"Start with the incident problem. A simple disk alert can be an AI-system component without a learning model.","trap":"Do all AI systems require training? No."},{"verb":"Learn Examples","tech":"ML — learn patterns from example data","example":"A labeled ticket dataset can help predict severity for new tickets.","trap":"Does every dataset have target labels? No."},{"verb":"Stack Layers","tech":"Deep Learning — multi-layer neural network methods","example":"A neural model can represent complex incident-text patterns; it remains a form of ML.","trap":"Does ML always mean a neural network? No."},{"verb":"Create Content","tech":"GenAI — generate new text, code or other content","example":"Draft an incident update, then review it for factual and authorization errors.","trap":"Is GenAI simply the final layer of DL? No; these groups overlap."}]},{"slug":"learning-types","topic":1,"title":"School, Socks, Game","subtitle":"Three different learning signals","image":"02-three-learning-signals.svg","hook":"Match Labels → Find Groups → Earn Rewards","steps":[{"verb":"Match Labels","tech":"Supervised learning — known correct answers","example":"Use past tickets whose priority is already labeled High or Low.","trap":"Without labels, can you claim supervised training data? No."},{"verb":"Find Groups","tech":"Unsupervised learning — discover structure","example":"Group unlabeled error messages into recurring patterns.","trap":"Is clustering the same as proving a diagnosis? No."},{"verb":"Earn Rewards","tech":"Reinforcement learning — learn action policy from reward feedback","example":"In a simulation, reward an agent for maintaining healthy resource usage.","trap":"Does a chat thumbs-up update its weights automatically? No."}]},{"slug":"training-inference","topic":1,"title":"Gym → Match Day","subtitle":"Training, inference and validation","image":"03-training-inference.svg","hook":"Examples In → Weights Change → New Case In → Prediction Out → Verify","steps":[{"verb":"Examples In","tech":"Collect appropriate labeled examples for learning","example":"Four synthetic examples specify disk usage and High/Low severity.","trap":"Are four examples enough for production validation? No."},{"verb":"Weights Change","tech":"Training adjusts learned model parameters","example":"The toy classifier computes a threshold from training examples.","trap":"Does a normal prompt retrain an LLM? No."},{"verb":"New Case In","tech":"Present an unseen input","example":"A new ticket arrives with disk utilization 92%.","trap":"Should unseen evaluation tickets be used for training? No."},{"verb":"Prediction Out","tech":"Inference applies trained parameters","example":"The toy threshold predicts High for 92% usage.","trap":"Does one plausible answer establish accuracy? No."},{"verb":"Verify","tech":"Check independent evidence before use","example":"Evaluate unseen labeled incidents and keep production restart behind approval.","trap":"May GenAI decide to restart production without authorization? No."}]},{"slug":"tokens-context","topic":2,"title":"Library Desk","subtitle":"Tokenizer, context and transformer attention","image":"04-tokens-context-attention.svg","hook":"Break into Pieces → Fit the Board → Relate the Pieces → Check the Answer","steps":[{"verb":"Break into Pieces","tech":"Model-specific tokenizer produces tokens","example":"'Disk usage 95%' does not imply exactly three tokens.","trap":"Is one word always one token? No."},{"verb":"Fit the Board","tech":"Model interaction has bounded context capacity","example":"An application may need to split or select long runbook material.","trap":"Is context the same as permanent memory? No."},{"verb":"Relate the Pieces","tech":"Transformer attention computes contextual relationships","example":"A model relates the alert to other prompt instructions and context.","trap":"Does attention guarantee correctness? No."},{"verb":"Check the Answer","tech":"Application validates result and safe guidance","example":"Reject unsupported causes and destructive commands.","trap":"Can an answer be fluent yet unsafe? Yes."}]},{"slug":"embeddings","topic":2,"title":"Meaning GPS","subtitle":"Semantic search and verified runbooks","image":"05-meaning-gps.svg","hook":"Encode Meaning → Find Neighbors → Read Sources → Verify Facts","steps":[{"verb":"Encode Meaning","tech":"Turn text into embedding vectors","example":"Represent the query 'server almost out of space' numerically.","trap":"Is a vector representation equal to a human-verified fact? No."},{"verb":"Find Neighbors","tech":"Rank likely related items using similarity","example":"A result about filesystem capacity alerts may rank highly.","trap":"Does the same topic guarantee the correct fix? No."},{"verb":"Read Sources","tech":"Fetch authorized documents","example":"Open a permitted runbook and inspect the cited steps.","trap":"Should search override access control? No."},{"verb":"Verify Facts","tech":"Check provenance, freshness and applicability","example":"Confirm whether the runbook still applies to the Linux version.","trap":"Is semantic similarity a safety certification? No."}]},{"slug":"hosting","topic":2,"title":"Restaurant vs Home Kitchen","subtitle":"Hosted and local model deployment","image":"06-hosted-local.svg","hook":"Provider Runs → Verify Terms; We Run → Maintain and Secure","steps":[{"verb":"Provider Runs","tech":"Hosted service operates model infrastructure","example":"A managed API avoids maintaining model-serving GPUs.","trap":"Does hosted automatically mean low cost? No."},{"verb":"Verify Terms","tech":"Check provider policy, price and availability","example":"Examine data retention, permitted regions, latency and rate limits.","trap":"Can confidential logs go to any hosted API? No."},{"verb":"We Run","tech":"Team hosts and operates the runtime","example":"A local model may keep processing within company-controlled infrastructure.","trap":"Does local automatically mean secure? No."},{"verb":"Maintain and Secure","tech":"Team owns capacity, patching, access and monitoring","example":"Test hardware fit, patch cadence and incident response responsibilities.","trap":"Is an open-weight model necessarily unrestricted? No."}]},{"slug":"model-choice","topic":2,"title":"Truck vs Scooter","subtitle":"LLM, SLM and multimodal capability","image":"07-llm-slm.svg","hook":"Check the Load → Match Capabilities → Test the Route","steps":[{"verb":"Check the Load","tech":"Define task and operational constraints","example":"Write down classification quality, privacy and request volume.","trap":"Is more model size always required? No."},{"verb":"Match Capabilities","tech":"Choose plausible model sizes and modalities","example":"Compare SLM/LLM and confirm supported image input if needed.","trap":"Can every large language model process a screenshot? No."},{"verb":"Test the Route","tech":"Benchmark quality, latency, memory and cost","example":"Use the same synthetic Linux incident on candidate models.","trap":"Does model size alone prove accuracy? No."}]}];
+const el = id => document.getElementById(id);
+let sceneIndex = 0;
+let stepIndex = 0;
+let playTimer = null;
+let playing = false;
+const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function makeButton(label, className) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.textContent = label;
+  b.className = className;
+  return b;
+}
+function stop() {
+  if (playTimer !== null) clearInterval(playTimer);
+  playTimer = null;
+  playing = false;
+  el("play").textContent = "▶ Play";
+  el("play").setAttribute("aria-pressed", "false");
+}
+function goScene(index) {
+  stop();
+  sceneIndex = index;
+  stepIndex = 0;
+  const scene = scenes[index];
+  el("topic-name").textContent = "Module 01 · Topic " + String(scene.topic).padStart(2, "0");
+  el("scene-title").textContent = scene.title;
+  el("scene-subtitle").textContent = scene.subtitle;
+  el("hook").textContent = "Say aloud: " + scene.hook;
+  el("scene-image").src = "../../assets/module-01/" + scene.image;
+  el("scene-image").alt = scene.title + ": illustrated action sequence " + scene.hook;
+  document.querySelectorAll(".scene-btn").forEach((button, i) => {
+    button.setAttribute("aria-current", i === index ? "true" : "false");
+  });
+  const stepsNode = el("steps");
+  stepsNode.replaceChildren();
+  scene.steps.forEach((stage, j) => {
+    const btn = makeButton(String(j+1) + ". " + stage.verb, "step-btn");
+    btn.addEventListener("click", () => { stop(); stepIndex = j; renderStep(); });
+    stepsNode.append(btn);
+  });
+  renderStep();
+}
+function renderStep() {
+  const scene = scenes[sceneIndex], stage = scene.steps[stepIndex];
+  el("step-index").textContent = "STEP " + (stepIndex+1) + " / " + scene.steps.length;
+  el("step-verb").textContent = stage.verb;
+  el("step-technical").textContent = stage.tech;
+  el("step-example").textContent = "DevOps trace: " + stage.example;
+  el("step-trap").textContent = "Interview trap: " + stage.trap;
+  document.querySelectorAll(".step-btn").forEach((button,i)=>{
+    button.setAttribute("aria-current",i===stepIndex?"step":"false");
+    button.classList.toggle("visited", i<stepIndex);
+  });
+  el("prev").disabled = stepIndex===0;
+  el("next").disabled = stepIndex===scene.steps.length-1;
+  el("status").textContent = "Scene " + (sceneIndex+1) + " of " + scenes.length + " · Step " + (stepIndex+1) + " of " + scene.steps.length + (reducedMotion ? " · Reduced-motion mode" : "");
+  const stageBox=el("stage");
+  stageBox.classList.remove("active");
+  if (!reducedMotion) {
+    void stageBox.offsetWidth;
+    stageBox.classList.add("active");
+  }
+}
+function next() {
+  if (stepIndex >= scenes[sceneIndex].steps.length-1) { stop(); return; }
+  stepIndex++;
+  renderStep();
+  if (stepIndex===scenes[sceneIndex].steps.length-1 && playing) stop();
+}
+function prev() { if (stepIndex>0) { stop();stepIndex--;renderStep(); } }
+function play() {
+  if (playing) {stop();return;}
+  if (stepIndex>=scenes[sceneIndex].steps.length-1) stepIndex=0;
+  playing=true;
+  el("play").textContent="❚❚ Pause";
+  el("play").setAttribute("aria-pressed","true");
+  renderStep();
+  playTimer=setInterval(next,Number(el("speed").value));
+}
+scenes.forEach((scene,i)=>{
+ const b=makeButton("","scene-btn");
+ const small=document.createElement("span");
+ small.className="small";
+ small.textContent="Topic "+scene.topic;
+ const name=document.createElement("span");
+ name.className="strong";
+ name.textContent=scene.title;
+ b.append(small,name);
+ b.addEventListener("click",()=>goScene(i));
+ el("scene-list").append(b);
+});
+el("prev").addEventListener("click",prev);
+el("next").addEventListener("click",()=>{stop();next();});
+el("reset").addEventListener("click",()=>{stop();stepIndex=0;renderStep();});
+el("play").addEventListener("click",play);
+el("speed").addEventListener("change",()=>{if(playing){stop();play();}});
+document.addEventListener("keydown",event=>{
+ if(["INPUT","SELECT","TEXTAREA"].includes(document.activeElement.tagName)) return;
+ if(event.altKey||event.ctrlKey||event.metaKey) return;
+ if(event.key==="ArrowRight") { event.preventDefault();stop();next(); }
+ if(event.key==="ArrowLeft") {event.preventDefault();prev();}
+});
+document.addEventListener("visibilitychange",()=>{if(document.hidden)stop();});
+goScene(0);
+</script>
+</body>
+</html>
