@@ -20,8 +20,8 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 | Source TOC 30h correction | BLOCKED | Confirm replacement durations in Word source |
 | Session-by-session content files | IN_PROGRESS | M01 authored in `content/module-01/`; M02 onward pending |
 | M01 manuscript / TOC alignment | VALIDATED | Both topic files follow the attached DSA reference: 17 original numbered sections, Memory Hook as section 5, Completion Check, Next Topic; AI-specific Python examples and complexity trade-offs; content review only |
-| M01 Topic 01 content quality audit | VALIDATED | Reference structure, synthetic DevOps scenario, working Python threshold example, negative tests, assignments, rubric and safety gate; **learner acceptance pending** |
-| M01 Topic 02 context example | VALIDATED | Python checks: 13 words; budget 6 retains 6/drops 7; budget 20 retains 13/drops 0. Full lesson includes negative-case code and illustrative model comparison; learner run pending |
+| M01 Topic 01 content quality audit | VALIDATED | Python 3.13.5 run passed: learned threshold=65.0, prediction at 92%=High, missing-class negative test, additional overlap and out-of-range negative cases; teaching-only synthetic classifier, **not a production accuracy claim**; learner acceptance pending |
+| M01 Topic 02 context example | VALIDATED | Executed with Python 3.13.5: 13 words; budget 6 retains 6/drops 7; budget 20 retains 13/drops 0; invalid budget rejected. **This is word-count practice, not real model token measurement.** Model comparison and learner run pending |
 | M01 learner lab evidence | NOT_STARTED | Instructor/learner to execute activities; capture expected vs actual evidence and teach-back |
 | Starter lab environment | NOT_STARTED | Python, virtualenv, FastAPI, model/mock adapter |
 | Foundation capstone | NOT_STARTED | S03–05 |
@@ -30,6 +30,11 @@ Status vocabulary: NOT_STARTED | IN_PROGRESS | BLOCKED | VALIDATED
 | Ops/K8s/FinOps lab | NOT_STARTED | S13–14 |
 | Integrated capstone and teach-back | NOT_STARTED | S15 |
 | CI + reproducibility | NOT_STARTED | Add after runnable code exists |
+
+## Independent authoring verification
+- Both lesson files match the uploaded DSA reference section order with Memory Hook as the sole added structural section (20 headings per topic, including Completion Check and Next Topic).
+- Python examples executed under Python 3.13.5; assertions and stated negative cases passed. Scripts are teaching examples, not demonstrations of deployed LLMs.
+- **Outstanding evidence:** actual model tokenizer measurement, real-model comparison outputs, observed learner teach-back, scored submissions, and instructor sign-off. These are not to be marked completed based on the manuscripts alone.
 
 ## Next executable step
 Both authored M01 topics match the source reference section order; collect actual learner lab evidence and scored assessments before signing off delivery, then proceed to M02. Do not claim learner sign-off or live execution without evidence.
